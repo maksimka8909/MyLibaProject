@@ -1,0 +1,2003 @@
+2024-11-29 20:01:33,815 - INFO - BEGIN (implicit)
+2024-11-29 20:01:33,815 - INFO - SELECT 1
+2024-11-29 20:01:33,815 - INFO - [generated in 0.00070s] ()
+2024-11-29 20:01:33,816 - INFO - ROLLBACK
+2024-11-29 20:01:40,149 - INFO - BEGIN (implicit)
+2024-11-29 20:01:40,153 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-11-29 20:01:40,153 - INFO - [generated in 0.00041s] ('u1', '123', 1, 0)
+2024-11-29 20:01:40,155 - INFO - ROLLBACK
+2024-11-29 20:01:41,113 - INFO - BEGIN (implicit)
+2024-11-29 20:01:41,125 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-11-29 20:01:41,125 - INFO - [generated in 0.00046s] ()
+2024-11-29 20:01:41,127 - INFO - Загружено книг: 10
+2024-11-29 20:01:41,127 - INFO - ROLLBACK
+2024-11-29 20:01:47,696 - INFO - BEGIN (implicit)
+2024-11-29 20:01:47,698 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-11-29 20:01:47,698 - INFO - [generated in 0.00039s] ('%19%', '%19%', '%19%')
+2024-11-29 20:01:47,698 - INFO - Поиск книг с запросом '19': найдено 1 записей
+2024-11-29 20:01:47,699 - INFO - ROLLBACK
+2024-11-29 20:01:50,083 - INFO - BEGIN (implicit)
+2024-11-29 20:01:50,084 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-11-29 20:01:50,085 - INFO - [cached since 2.388s ago] ('%%', '%%', '%%')
+2024-11-29 20:01:50,087 - INFO - Поиск книг с запросом '': найдено 10 записей
+2024-11-29 20:01:50,089 - INFO - ROLLBACK
+2024-11-29 20:01:52,551 - INFO - BEGIN (implicit)
+2024-11-29 20:01:52,552 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.id = ?
+ LIMIT ? OFFSET ?
+2024-11-29 20:01:52,552 - INFO - [generated in 0.00028s] ('7', 1, 0)
+2024-11-29 20:01:52,556 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-11-29 20:01:52,556 - INFO - [generated in 0.00036s] (1, 7, 'borrowed', 1, 0)
+2024-11-29 20:01:52,559 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-11-29 20:01:52,559 - INFO - [generated in 0.00031s] (4, 7)
+2024-11-29 20:01:52,570 - INFO - INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, status) VALUES (?, ?, ?, ?, ?)
+2024-11-29 20:01:52,570 - INFO - [generated in 0.00042s] (1, 7, '2024-11-29 17:01:52.570898', None, 'borrowed')
+2024-11-29 20:01:52,571 - INFO - COMMIT
+2024-11-29 20:01:52,575 - INFO - BEGIN (implicit)
+2024-11-29 20:01:52,578 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.id = ?
+2024-11-29 20:01:52,578 - INFO - [generated in 0.00032s] (7,)
+2024-12-01 14:04:38,326 - INFO - BEGIN (implicit)
+2024-12-01 14:04:38,326 - INFO - SELECT 1
+2024-12-01 14:04:38,327 - INFO - [generated in 0.00124s] ()
+2024-12-01 14:04:38,327 - INFO - ROLLBACK
+2024-12-01 14:04:47,602 - INFO - BEGIN (implicit)
+2024-12-01 14:04:47,606 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:04:47,606 - INFO - [generated in 0.00038s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:04:47,609 - INFO - ROLLBACK
+2024-12-01 14:05:44,452 - INFO - Начало добавления книги
+2024-12-01 14:05:44,453 - INFO - BEGIN (implicit)
+2024-12-01 14:05:44,456 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:05:44,457 - INFO - [generated in 0.00042s] ('Евгений Онегин', 'Пушкин А.С.', 'Русская классика', 1825, 7)
+2024-12-01 14:05:44,466 - INFO - COMMIT
+2024-12-01 14:05:44,469 - INFO - Книга успешно добавлена в базу данных
+2024-12-01 14:09:45,978 - INFO - BEGIN (implicit)
+2024-12-01 14:09:45,979 - INFO - SELECT 1
+2024-12-01 14:09:45,979 - INFO - [generated in 0.00063s] ()
+2024-12-01 14:09:45,979 - INFO - ROLLBACK
+2024-12-01 14:10:02,520 - INFO - BEGIN (implicit)
+2024-12-01 14:10:02,524 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:10:02,524 - INFO - [generated in 0.00038s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:10:02,525 - INFO - ROLLBACK
+2024-12-01 14:10:45,196 - INFO - Начало добавления книги в базу данных
+2024-12-01 14:10:45,197 - INFO - BEGIN (implicit)
+2024-12-01 14:10:45,199 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:10:45,199 - INFO - [generated in 0.00040s] ('Отцы и дети', 'Тургенев И.', 'Русская классика', 1860, 5)
+2024-12-01 14:10:45,208 - INFO - COMMIT
+2024-12-01 14:10:45,210 - INFO - Книга 'Отцы и дети' успешно добавлена
+2024-12-01 14:14:45,856 - INFO - BEGIN (implicit)
+2024-12-01 14:14:45,857 - INFO - SELECT 1
+2024-12-01 14:14:45,857 - INFO - [generated in 0.00064s] ()
+2024-12-01 14:14:45,857 - INFO - ROLLBACK
+2024-12-01 14:14:54,901 - INFO - BEGIN (implicit)
+2024-12-01 14:14:54,904 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:14:54,904 - INFO - [generated in 0.00037s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:14:54,906 - INFO - ROLLBACK
+2024-12-01 14:15:44,668 - INFO - Метод add_book запущен в потоке: MainThread
+2024-12-01 14:15:44,670 - INFO - Начало добавления книги в базу данных
+2024-12-01 14:15:44,670 - INFO - BEGIN (implicit)
+2024-12-01 14:15:44,672 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:15:44,672 - INFO - [generated in 0.00032s] ('Идиот', 'Достоевский Ф.', 'Русская классика', 1855, 3)
+2024-12-01 14:15:44,682 - INFO - COMMIT
+2024-12-01 14:15:44,685 - INFO - Книга 'Идиот' успешно добавлена
+2024-12-01 14:15:44,748 - ERROR - Ошибка добавления книги: Calling Tcl from different apartment
+2024-12-01 14:15:44,804 - INFO - Сессия базы данных закрыта
+2024-12-01 14:16:06,161 - INFO - Метод add_book запущен в потоке: MainThread
+2024-12-01 14:16:06,167 - INFO - Начало добавления книги в базу данных
+2024-12-01 14:16:06,168 - INFO - BEGIN (implicit)
+2024-12-01 14:16:06,169 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:16:06,170 - INFO - [cached since 21.5s ago] ('Идиот', 'Достоевский Ф.', 'Русская классика', 1855, 3)
+2024-12-01 14:16:06,180 - INFO - COMMIT
+2024-12-01 14:16:06,184 - INFO - Книга 'Идиот' успешно добавлена
+2024-12-01 14:16:06,250 - ERROR - Ошибка добавления книги: Calling Tcl from different apartment
+2024-12-01 14:16:06,299 - INFO - Сессия базы данных закрыта
+2024-12-01 14:17:38,897 - INFO - BEGIN (implicit)
+2024-12-01 14:17:38,898 - INFO - SELECT 1
+2024-12-01 14:17:38,898 - INFO - [generated in 0.00099s] ()
+2024-12-01 14:17:38,899 - INFO - ROLLBACK
+2024-12-01 14:17:51,268 - INFO - BEGIN (implicit)
+2024-12-01 14:17:51,275 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:17:51,276 - INFO - [generated in 0.00063s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:17:51,278 - INFO - ROLLBACK
+2024-12-01 14:18:25,989 - INFO - Начало добавления книги в базу данных
+2024-12-01 14:18:25,990 - INFO - BEGIN (implicit)
+2024-12-01 14:18:25,992 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:18:25,992 - INFO - [generated in 0.00030s] ('Идиот', 'Достоевский Ф.М.', 'Русская классика', 1855, 4)
+2024-12-01 14:18:26,001 - INFO - COMMIT
+2024-12-01 14:18:26,003 - INFO - Книга 'Идиот' успешно добавлена
+2024-12-01 14:18:26,003 - INFO - Сессия базы данных закрыта
+2024-12-01 14:20:01,427 - INFO - BEGIN (implicit)
+2024-12-01 14:20:01,427 - INFO - SELECT 1
+2024-12-01 14:20:01,427 - INFO - [generated in 0.00078s] ()
+2024-12-01 14:20:01,428 - INFO - ROLLBACK
+2024-12-01 14:20:08,892 - INFO - BEGIN (implicit)
+2024-12-01 14:20:08,896 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:20:08,897 - INFO - [generated in 0.00040s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:20:08,898 - INFO - ROLLBACK
+2024-12-01 14:20:51,461 - INFO - Начало добавления книги в базу данных
+2024-12-01 14:20:51,463 - INFO - BEGIN (implicit)
+2024-12-01 14:20:51,468 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:20:51,469 - INFO - [generated in 0.00083s] ('Дубровский', 'Пушкин А.С.', 'Русская классика', 1833, 1)
+2024-12-01 14:20:51,479 - INFO - COMMIT
+2024-12-01 14:20:51,482 - INFO - Книга 'Дубровский' успешно добавлена
+2024-12-01 14:20:51,482 - INFO - Сессия базы данных закрыта
+2024-12-01 14:22:43,809 - INFO - BEGIN (implicit)
+2024-12-01 14:22:43,809 - INFO - SELECT 1
+2024-12-01 14:22:43,810 - INFO - [generated in 0.00077s] ()
+2024-12-01 14:22:43,810 - INFO - ROLLBACK
+2024-12-01 14:22:51,283 - INFO - BEGIN (implicit)
+2024-12-01 14:22:51,287 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:22:51,287 - INFO - [generated in 0.00038s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:22:51,288 - INFO - ROLLBACK
+2024-12-01 14:23:33,540 - INFO - Начало добавления книги в базу данных
+2024-12-01 14:23:33,541 - INFO - BEGIN (implicit)
+2024-12-01 14:23:33,545 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:23:33,545 - INFO - [generated in 0.00033s] ('Ревизор', 'Гоголь Н.', 'Русская классика', 1836, 4)
+2024-12-01 14:23:33,554 - INFO - COMMIT
+2024-12-01 14:23:33,556 - INFO - Книга 'Ревизор' успешно добавлена
+2024-12-01 14:25:05,237 - INFO - BEGIN (implicit)
+2024-12-01 14:25:05,238 - INFO - SELECT 1
+2024-12-01 14:25:05,238 - INFO - [generated in 0.00079s] ()
+2024-12-01 14:25:05,238 - INFO - ROLLBACK
+2024-12-01 14:25:11,587 - INFO - BEGIN (implicit)
+2024-12-01 14:25:11,591 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:25:11,591 - INFO - [generated in 0.00039s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:25:11,592 - INFO - ROLLBACK
+2024-12-01 14:26:17,617 - INFO - BEGIN (implicit)
+2024-12-01 14:26:17,619 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:26:17,619 - INFO - [generated in 0.00031s] ('Робинзон Крузо', 'Даниель Дефо', 'Фантастика', 1719, 3)
+2024-12-01 14:26:17,628 - INFO - COMMIT
+2024-12-01 14:26:17,631 - INFO - Книга 'Робинзон Крузо' успешно добавлена
+2024-12-01 14:26:17,631 - ERROR - Ошибка добавления книги: module 'ttkbootstrap' has no attribute 'Messagebox'
+2024-12-01 14:26:21,481 - INFO - BEGIN (implicit)
+2024-12-01 14:26:21,482 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:26:21,482 - INFO - [cached since 3.864s ago] ('Робинзон Крузо', 'Даниель Дефо', 'Фантастика', 1719, 3)
+2024-12-01 14:26:21,492 - INFO - COMMIT
+2024-12-01 14:26:21,498 - INFO - Книга 'Робинзон Крузо' успешно добавлена
+2024-12-01 14:26:21,498 - ERROR - Ошибка добавления книги: module 'ttkbootstrap' has no attribute 'Messagebox'
+2024-12-01 14:27:36,855 - INFO - BEGIN (implicit)
+2024-12-01 14:27:36,856 - INFO - SELECT 1
+2024-12-01 14:27:36,856 - INFO - [generated in 0.00109s] ()
+2024-12-01 14:27:36,857 - INFO - ROLLBACK
+2024-12-01 14:27:42,574 - INFO - BEGIN (implicit)
+2024-12-01 14:27:42,580 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:27:42,580 - INFO - [generated in 0.00047s] ('u1', '123', 1, 0)
+2024-12-01 14:27:42,582 - INFO - ROLLBACK
+2024-12-01 14:27:43,295 - INFO - BEGIN (implicit)
+2024-12-01 14:27:43,296 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 14:27:43,296 - INFO - [generated in 0.00027s] ()
+2024-12-01 14:27:43,297 - INFO - Загружено книг: 21
+2024-12-01 14:27:43,298 - INFO - ROLLBACK
+2024-12-01 14:28:15,136 - INFO - BEGIN (implicit)
+2024-12-01 14:28:15,139 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 14:28:15,140 - INFO - [generated in 0.00062s] ('%ид%', '%ид%', '%ид%')
+2024-12-01 14:28:15,141 - INFO - Поиск книг с запросом 'ид': найдено 0 записей
+2024-12-01 14:28:20,547 - INFO - BEGIN (implicit)
+2024-12-01 14:28:20,547 - INFO - SELECT 1
+2024-12-01 14:28:20,547 - INFO - [generated in 0.00076s] ()
+2024-12-01 14:28:20,548 - INFO - ROLLBACK
+2024-12-01 14:28:29,298 - INFO - BEGIN (implicit)
+2024-12-01 14:28:29,301 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:28:29,301 - INFO - [generated in 0.00037s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:28:29,303 - INFO - ROLLBACK
+2024-12-01 14:29:18,064 - INFO - BEGIN (implicit)
+2024-12-01 14:29:18,066 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:29:18,066 - INFO - [generated in 0.00032s] ('Тихий Дон', 'Шолохов М.', 'Русская классика', 1926, 7)
+2024-12-01 14:29:18,076 - INFO - COMMIT
+2024-12-01 14:29:18,078 - INFO - Книга 'Тихий Дон' успешно добавлена
+2024-12-01 14:35:36,669 - INFO - BEGIN (implicit)
+2024-12-01 14:35:36,670 - INFO - SELECT 1
+2024-12-01 14:35:36,670 - INFO - [generated in 0.00063s] ()
+2024-12-01 14:35:36,670 - INFO - ROLLBACK
+2024-12-01 14:35:48,939 - INFO - BEGIN (implicit)
+2024-12-01 14:35:48,944 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:35:48,945 - INFO - [generated in 0.00040s] ('u1', '123', 1, 0)
+2024-12-01 14:35:48,946 - INFO - ROLLBACK
+2024-12-01 14:38:28,884 - INFO - BEGIN (implicit)
+2024-12-01 14:38:28,884 - INFO - SELECT 1
+2024-12-01 14:38:28,884 - INFO - [generated in 0.00065s] ()
+2024-12-01 14:38:28,885 - INFO - ROLLBACK
+2024-12-01 14:38:39,087 - INFO - BEGIN (implicit)
+2024-12-01 14:38:39,092 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:38:39,093 - INFO - [generated in 0.00066s] ('u1', '123', 1, 0)
+2024-12-01 14:38:39,095 - INFO - ROLLBACK
+2024-12-01 14:38:41,219 - INFO - BEGIN (implicit)
+2024-12-01 14:38:41,220 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 14:38:41,220 - INFO - [generated in 0.00029s] ()
+2024-12-01 14:38:41,221 - INFO - ROLLBACK
+2024-12-01 14:38:51,380 - INFO - BEGIN (implicit)
+2024-12-01 14:38:51,384 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 14:38:51,384 - INFO - [generated in 0.00067s] ('%ид%', '%ид%', '%ид%')
+2024-12-01 14:38:51,386 - INFO - ROLLBACK
+2024-12-01 14:38:54,201 - INFO - BEGIN (implicit)
+2024-12-01 14:38:54,202 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 14:38:54,202 - INFO - [cached since 2.818s ago] ('%%', '%%', '%%')
+2024-12-01 14:38:54,204 - INFO - ROLLBACK
+2024-12-01 14:39:01,123 - INFO - BEGIN (implicit)
+2024-12-01 14:39:01,126 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:39:01,126 - INFO - [generated in 0.00069s] ('Анна Каренина', 1, 0)
+2024-12-01 14:39:01,133 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 14:39:01,133 - INFO - [generated in 0.00073s] (4, 7)
+2024-12-01 14:39:01,145 - INFO - INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, status) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:39:01,146 - INFO - [generated in 0.00050s] (1, 7, '2024-12-01 11:39:01.145417', None, 'borrowed')
+2024-12-01 14:39:01,147 - INFO - COMMIT
+2024-12-01 14:39:01,151 - INFO - BEGIN (implicit)
+2024-12-01 14:39:01,152 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.id = ?
+2024-12-01 14:39:01,153 - INFO - [generated in 0.00036s] (7,)
+2024-12-01 14:39:03,180 - INFO - ROLLBACK
+2024-12-01 14:39:03,181 - INFO - BEGIN (implicit)
+2024-12-01 14:39:03,182 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 14:39:03,182 - INFO - [cached since 21.96s ago] ()
+2024-12-01 14:39:03,183 - INFO - ROLLBACK
+2024-12-01 14:39:14,454 - INFO - BEGIN (implicit)
+2024-12-01 14:39:14,455 - INFO - SELECT 1
+2024-12-01 14:39:14,455 - INFO - [generated in 0.00074s] ()
+2024-12-01 14:39:14,455 - INFO - ROLLBACK
+2024-12-01 14:39:33,723 - INFO - BEGIN (implicit)
+2024-12-01 14:39:33,730 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:39:33,730 - INFO - [generated in 0.00056s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:39:33,731 - INFO - ROLLBACK
+2024-12-01 14:41:07,588 - INFO - BEGIN (implicit)
+2024-12-01 14:41:07,589 - INFO - SELECT 1
+2024-12-01 14:41:07,589 - INFO - [generated in 0.00070s] ()
+2024-12-01 14:41:07,589 - INFO - ROLLBACK
+2024-12-01 14:41:18,136 - INFO - BEGIN (implicit)
+2024-12-01 14:41:18,144 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:41:18,145 - INFO - [generated in 0.00052s] ('l1', 'librarian123', 1, 0)
+2024-12-01 14:41:18,146 - INFO - ROLLBACK
+2024-12-01 14:41:29,703 - INFO - BEGIN (implicit)
+2024-12-01 14:41:29,705 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.status = ?
+2024-12-01 14:41:29,705 - INFO - [generated in 0.00035s] ('borrowed',)
+2024-12-01 14:41:29,706 - INFO - ROLLBACK
+2024-12-01 14:41:34,721 - INFO - BEGIN (implicit)
+2024-12-01 14:41:34,722 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.id = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:41:34,723 - INFO - [generated in 0.00034s] (9, 1, 0)
+2024-12-01 14:41:34,725 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.id = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:41:34,725 - INFO - [generated in 0.00034s] (7, 1, 0)
+2024-12-01 14:41:34,728 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 14:41:34,728 - INFO - [generated in 0.00031s] (5, 7)
+2024-12-01 14:41:34,738 - INFO - UPDATE borrow_records SET status=? WHERE borrow_records.id = ?
+2024-12-01 14:41:34,739 - INFO - [generated in 0.00037s] ('returned', 9)
+2024-12-01 14:41:34,739 - INFO - COMMIT
+2024-12-01 14:41:36,352 - INFO - BEGIN (implicit)
+2024-12-01 14:41:36,353 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.status = ?
+2024-12-01 14:41:36,354 - INFO - [cached since 6.65s ago] ('borrowed',)
+2024-12-01 14:41:36,356 - INFO - ROLLBACK
+2024-12-01 14:41:37,943 - INFO - BEGIN (implicit)
+2024-12-01 14:41:37,943 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.status = ?
+2024-12-01 14:41:37,943 - INFO - [cached since 8.239s ago] ('borrowed',)
+2024-12-01 14:41:37,944 - INFO - ROLLBACK
+2024-12-01 14:42:40,361 - INFO - BEGIN (implicit)
+2024-12-01 14:42:40,364 - INFO - INSERT INTO books (title, author, genre, year, quantity) VALUES (?, ?, ?, ?, ?)
+2024-12-01 14:42:40,364 - INFO - [generated in 0.00071s] ('Бесы', 'Достоевский Ф.М.', 'Русская классика', 1870, 4)
+2024-12-01 14:42:40,375 - INFO - COMMIT
+2024-12-01 14:56:45,423 - INFO - BEGIN (implicit)
+2024-12-01 14:56:45,424 - INFO - SELECT 1
+2024-12-01 14:56:45,424 - INFO - [generated in 0.00067s] ()
+2024-12-01 14:56:45,424 - INFO - ROLLBACK
+2024-12-01 14:56:53,114 - INFO - BEGIN (implicit)
+2024-12-01 14:56:53,117 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:56:53,118 - INFO - [generated in 0.00046s] ('u1', '123', 1, 0)
+2024-12-01 14:56:53,119 - INFO - ROLLBACK
+2024-12-01 14:56:54,288 - INFO - BEGIN (implicit)
+2024-12-01 14:56:54,290 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 14:56:54,290 - INFO - [generated in 0.00031s] ()
+2024-12-01 14:56:54,291 - INFO - ROLLBACK
+2024-12-01 14:57:05,061 - INFO - BEGIN (implicit)
+2024-12-01 14:57:05,064 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:57:05,064 - INFO - [generated in 0.00060s] ('Моби Дик', 1, 0)
+2024-12-01 14:58:17,133 - INFO - BEGIN (implicit)
+2024-12-01 14:58:17,133 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:58:17,134 - INFO - [cached since 72.07s ago] ('Моби Дик', 1, 0)
+2024-12-01 14:58:32,074 - INFO - BEGIN (implicit)
+2024-12-01 14:58:32,075 - INFO - SELECT 1
+2024-12-01 14:58:32,075 - INFO - [generated in 0.00065s] ()
+2024-12-01 14:58:32,075 - INFO - ROLLBACK
+2024-12-01 14:58:40,231 - INFO - BEGIN (implicit)
+2024-12-01 14:58:40,237 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:58:40,237 - INFO - [generated in 0.00046s] ('u1', '123', 1, 0)
+2024-12-01 14:58:40,239 - INFO - ROLLBACK
+2024-12-01 14:58:41,236 - INFO - BEGIN (implicit)
+2024-12-01 14:58:41,237 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 14:58:41,237 - INFO - [generated in 0.00026s] ()
+2024-12-01 14:58:41,238 - INFO - ROLLBACK
+2024-12-01 14:58:44,844 - INFO - BEGIN (implicit)
+2024-12-01 14:58:44,846 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 14:58:44,847 - INFO - [generated in 0.00066s] ('Моби Дик', 1, 0)
+2024-12-01 15:07:43,590 - INFO - BEGIN (implicit)
+2024-12-01 15:07:43,590 - INFO - SELECT 1
+2024-12-01 15:07:43,590 - INFO - [generated in 0.00063s] ()
+2024-12-01 15:07:43,591 - INFO - ROLLBACK
+2024-12-01 15:07:56,754 - INFO - BEGIN (implicit)
+2024-12-01 15:07:56,758 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:07:56,759 - INFO - [generated in 0.00041s] ('u1', '123', 1, 0)
+2024-12-01 15:07:56,760 - INFO - ROLLBACK
+2024-12-01 15:07:58,139 - INFO - BEGIN (implicit)
+2024-12-01 15:07:58,140 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:07:58,140 - INFO - [generated in 0.00030s] ()
+2024-12-01 15:07:58,142 - INFO - ROLLBACK
+2024-12-01 15:08:01,560 - INFO - BEGIN (implicit)
+2024-12-01 15:08:01,564 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:08:01,564 - INFO - [generated in 0.00072s] ('Моби Дик', 1, 0)
+2024-12-01 15:08:01,571 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:08:01,572 - INFO - [generated in 0.00072s] (1, 10, 'borrowed', 1, 0)
+2024-12-01 15:08:01,578 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 15:08:01,578 - INFO - [generated in 0.00067s] (1, 10)
+2024-12-01 15:08:01,589 - INFO - INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, status) VALUES (?, ?, ?, ?, ?)
+2024-12-01 15:08:01,589 - INFO - [generated in 0.00040s] (1, 10, '2024-12-01 12:08:01.588541', None, 'borrowed')
+2024-12-01 15:08:01,590 - INFO - COMMIT
+2024-12-01 15:08:01,593 - INFO - BEGIN (implicit)
+2024-12-01 15:08:01,593 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:08:01,594 - INFO - [cached since 3.453s ago] ()
+2024-12-01 15:08:01,594 - INFO - ROLLBACK
+2024-12-01 15:08:03,689 - INFO - BEGIN (implicit)
+2024-12-01 15:08:03,690 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:08:03,691 - INFO - [cached since 2.128s ago] ('Моби Дик', 1, 0)
+2024-12-01 15:08:03,693 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:08:03,694 - INFO - [cached since 2.123s ago] (1, 10, 'borrowed', 1, 0)
+2024-12-01 15:13:20,653 - INFO - BEGIN (implicit)
+2024-12-01 15:13:20,654 - INFO - SELECT 1
+2024-12-01 15:13:20,654 - INFO - [generated in 0.00076s] ()
+2024-12-01 15:13:20,654 - INFO - ROLLBACK
+2024-12-01 15:13:29,474 - INFO - BEGIN (implicit)
+2024-12-01 15:13:29,481 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:13:29,481 - INFO - [generated in 0.00063s] ('u1', '123', 1, 0)
+2024-12-01 15:13:29,483 - INFO - ROLLBACK
+2024-12-01 15:13:30,427 - INFO - BEGIN (implicit)
+2024-12-01 15:13:30,428 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:13:30,428 - INFO - [generated in 0.00028s] ()
+2024-12-01 15:13:30,430 - INFO - ROLLBACK
+2024-12-01 15:15:05,232 - INFO - BEGIN (implicit)
+2024-12-01 15:15:05,232 - INFO - SELECT 1
+2024-12-01 15:15:05,232 - INFO - [generated in 0.00095s] ()
+2024-12-01 15:15:05,233 - INFO - ROLLBACK
+2024-12-01 15:15:12,282 - INFO - BEGIN (implicit)
+2024-12-01 15:15:12,287 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:15:12,288 - INFO - [generated in 0.00044s] ('u1', '123', 1, 0)
+2024-12-01 15:15:12,289 - INFO - ROLLBACK
+2024-12-01 15:15:13,401 - INFO - BEGIN (implicit)
+2024-12-01 15:15:13,403 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:15:13,403 - INFO - [generated in 0.00035s] ()
+2024-12-01 15:15:13,404 - INFO - ROLLBACK
+2024-12-01 15:16:05,564 - INFO - BEGIN (implicit)
+2024-12-01 15:16:05,565 - INFO - SELECT 1
+2024-12-01 15:16:05,565 - INFO - [generated in 0.00070s] ()
+2024-12-01 15:16:05,565 - INFO - ROLLBACK
+2024-12-01 15:16:12,150 - INFO - BEGIN (implicit)
+2024-12-01 15:16:12,157 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:16:12,157 - INFO - [generated in 0.00054s] ('u1', '123', 1, 0)
+2024-12-01 15:16:12,159 - INFO - ROLLBACK
+2024-12-01 15:16:13,079 - INFO - BEGIN (implicit)
+2024-12-01 15:16:13,080 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:16:13,080 - INFO - [generated in 0.00033s] ()
+2024-12-01 15:16:13,081 - INFO - ROLLBACK
+2024-12-01 15:16:19,725 - INFO - BEGIN (implicit)
+2024-12-01 15:16:19,729 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:16:19,730 - INFO - [generated in 0.00065s] ('%иди%', '%иди%', '%иди%')
+2024-12-01 15:16:19,731 - INFO - ROLLBACK
+2024-12-01 15:16:22,763 - INFO - BEGIN (implicit)
+2024-12-01 15:16:22,764 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:16:22,764 - INFO - [cached since 3.034s ago] ('%идиот%', '%идиот%', '%идиот%')
+2024-12-01 15:16:22,765 - INFO - ROLLBACK
+2024-12-01 15:16:25,744 - INFO - BEGIN (implicit)
+2024-12-01 15:16:25,745 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:16:25,746 - INFO - [cached since 6.016s ago] ('%идиот%', '%идиот%', '%идиот%')
+2024-12-01 15:16:25,747 - INFO - ROLLBACK
+2024-12-01 15:16:28,242 - INFO - BEGIN (implicit)
+2024-12-01 15:16:28,245 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:16:28,245 - INFO - [generated in 0.00066s] ('%%', '%%', '%%')
+2024-12-01 15:16:28,248 - INFO - ROLLBACK
+2024-12-01 15:18:44,193 - INFO - BEGIN (implicit)
+2024-12-01 15:18:44,194 - INFO - SELECT 1
+2024-12-01 15:18:44,194 - INFO - [generated in 0.00165s] ()
+2024-12-01 15:18:44,195 - INFO - ROLLBACK
+2024-12-01 15:18:49,615 - INFO - BEGIN (implicit)
+2024-12-01 15:18:49,619 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:18:49,619 - INFO - [generated in 0.00039s] ('u1', '123', 1, 0)
+2024-12-01 15:18:49,621 - INFO - ROLLBACK
+2024-12-01 15:18:50,600 - INFO - BEGIN (implicit)
+2024-12-01 15:18:50,601 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:18:50,602 - INFO - [generated in 0.00033s] ()
+2024-12-01 15:18:50,603 - INFO - ROLLBACK
+2024-12-01 15:20:12,813 - INFO - BEGIN (implicit)
+2024-12-01 15:20:12,815 - INFO - SELECT 1
+2024-12-01 15:20:12,815 - INFO - [generated in 0.00228s] ()
+2024-12-01 15:20:12,816 - INFO - ROLLBACK
+2024-12-01 15:20:17,826 - INFO - BEGIN (implicit)
+2024-12-01 15:20:17,832 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:20:17,832 - INFO - [generated in 0.00044s] ('u1', '123', 1, 0)
+2024-12-01 15:20:17,834 - INFO - ROLLBACK
+2024-12-01 15:20:19,024 - INFO - BEGIN (implicit)
+2024-12-01 15:20:19,027 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:20:19,027 - INFO - [generated in 0.00058s] ()
+2024-12-01 15:20:19,030 - INFO - ROLLBACK
+2024-12-01 15:20:25,378 - INFO - BEGIN (implicit)
+2024-12-01 15:20:25,382 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:20:25,383 - INFO - [generated in 0.00056s] ('%иди%', '%иди%', '%иди%')
+2024-12-01 15:20:25,384 - INFO - ROLLBACK
+2024-12-01 15:28:44,750 - INFO - BEGIN (implicit)
+2024-12-01 15:28:44,752 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:28:44,752 - INFO - [cached since 499.4s ago] ('%иди%', '%иди%', '%иди%')
+2024-12-01 15:28:44,755 - INFO - ROLLBACK
+2024-12-01 15:28:56,631 - INFO - BEGIN (implicit)
+2024-12-01 15:28:56,632 - INFO - SELECT 1
+2024-12-01 15:28:56,632 - INFO - [generated in 0.00097s] ()
+2024-12-01 15:28:56,633 - INFO - ROLLBACK
+2024-12-01 15:29:04,171 - INFO - BEGIN (implicit)
+2024-12-01 15:29:04,177 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:29:04,177 - INFO - [generated in 0.00045s] ('u1', '123', 1, 0)
+2024-12-01 15:29:04,179 - INFO - ROLLBACK
+2024-12-01 15:29:05,113 - INFO - BEGIN (implicit)
+2024-12-01 15:29:05,114 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:29:05,114 - INFO - [generated in 0.00026s] ()
+2024-12-01 15:29:05,116 - INFO - ROLLBACK
+2024-12-01 15:29:12,132 - INFO - BEGIN (implicit)
+2024-12-01 15:29:12,137 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:29:12,137 - INFO - [generated in 0.00059s] ('%иди%', '%иди%', '%иди%')
+2024-12-01 15:29:12,139 - INFO - Поисковый запрос: иди
+2024-12-01 15:29:12,139 - INFO - Найдено записей: 0
+2024-12-01 15:29:12,140 - INFO - ROLLBACK
+2024-12-01 15:29:25,632 - INFO - BEGIN (implicit)
+2024-12-01 15:29:25,634 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:29:25,635 - INFO - [generated in 0.00031s] ('%19%', '%19%', '%19%')
+2024-12-01 15:29:25,635 - INFO - Поисковый запрос: 19
+2024-12-01 15:29:25,636 - INFO - Найдено записей: 1
+2024-12-01 15:29:25,636 - INFO - ROLLBACK
+2024-12-01 15:29:31,797 - INFO - BEGIN (implicit)
+2024-12-01 15:29:31,798 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:29:31,798 - INFO - [cached since 19.66s ago] ('%идиот%', '%идиот%', '%идиот%')
+2024-12-01 15:29:31,799 - INFO - Поисковый запрос: идиот
+2024-12-01 15:29:31,799 - INFO - Найдено записей: 0
+2024-12-01 15:29:31,800 - INFO - ROLLBACK
+2024-12-01 15:29:37,262 - INFO - BEGIN (implicit)
+2024-12-01 15:29:37,262 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:29:37,262 - INFO - [cached since 33.09s ago] ('u1', '123\\', 1, 0)
+2024-12-01 15:29:37,264 - INFO - ROLLBACK
+2024-12-01 15:29:43,521 - INFO - BEGIN (implicit)
+2024-12-01 15:29:43,521 - INFO - SELECT 1
+2024-12-01 15:29:43,521 - INFO - [generated in 0.00063s] ()
+2024-12-01 15:29:43,522 - INFO - ROLLBACK
+2024-12-01 15:29:49,965 - INFO - BEGIN (implicit)
+2024-12-01 15:29:49,969 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:29:49,969 - INFO - [generated in 0.00039s] ('u1', '123', 1, 0)
+2024-12-01 15:29:49,970 - INFO - ROLLBACK
+2024-12-01 15:29:51,136 - INFO - BEGIN (implicit)
+2024-12-01 15:29:51,137 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:29:51,137 - INFO - [generated in 0.00026s] ()
+2024-12-01 15:29:51,139 - INFO - ROLLBACK
+2024-12-01 15:30:06,547 - INFO - BEGIN (implicit)
+2024-12-01 15:30:06,552 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:30:06,552 - INFO - [generated in 0.00065s] ('%мастер%', '%мастер%', '%мастер%')
+2024-12-01 15:30:06,554 - INFO - Поисковый запрос: мастер
+2024-12-01 15:30:06,554 - INFO - Найдено записей: 0
+2024-12-01 15:30:06,556 - INFO - ROLLBACK
+2024-12-01 15:32:46,281 - INFO - BEGIN (implicit)
+2024-12-01 15:32:46,281 - INFO - SELECT 1
+2024-12-01 15:32:46,281 - INFO - [generated in 0.00106s] ()
+2024-12-01 15:32:46,282 - INFO - ROLLBACK
+2024-12-01 15:32:57,295 - INFO - BEGIN (implicit)
+2024-12-01 15:32:57,302 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:32:57,302 - INFO - [generated in 0.00042s] ('u1', '123', 1, 0)
+2024-12-01 15:32:57,304 - INFO - ROLLBACK
+2024-12-01 15:32:58,669 - INFO - BEGIN (implicit)
+2024-12-01 15:32:58,671 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:32:58,671 - INFO - [generated in 0.00032s] ()
+2024-12-01 15:32:58,672 - INFO - ROLLBACK
+2024-12-01 15:33:06,145 - INFO - BEGIN (implicit)
+2024-12-01 15:33:06,149 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (lower(books.title) LIKE '%' || ? || '%') OR (lower(books.author) LIKE '%' || ? || '%') OR (lower(books.genre) LIKE '%' || ? || '%')
+2024-12-01 15:33:06,150 - INFO - [generated in 0.00078s] ('19', '19', '19')
+2024-12-01 15:33:06,151 - INFO - Поисковый запрос: 19
+2024-12-01 15:33:06,152 - INFO - Найдено записей: 1
+2024-12-01 15:33:06,153 - INFO - ROLLBACK
+2024-12-01 15:33:09,440 - INFO - BEGIN (implicit)
+2024-12-01 15:33:09,441 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (lower(books.title) LIKE '%' || ? || '%') OR (lower(books.author) LIKE '%' || ? || '%') OR (lower(books.genre) LIKE '%' || ? || '%')
+2024-12-01 15:33:09,442 - INFO - [cached since 3.293s ago] ('1984', '1984', '1984')
+2024-12-01 15:33:09,443 - INFO - Поисковый запрос: 1984
+2024-12-01 15:33:09,443 - INFO - Найдено записей: 1
+2024-12-01 15:33:09,443 - INFO - ROLLBACK
+2024-12-01 15:33:12,018 - INFO - BEGIN (implicit)
+2024-12-01 15:33:12,019 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (lower(books.title) LIKE '%' || ? || '%') OR (lower(books.author) LIKE '%' || ? || '%') OR (lower(books.genre) LIKE '%' || ? || '%')
+2024-12-01 15:33:12,019 - INFO - [cached since 5.87s ago] ('1', '1', '1')
+2024-12-01 15:33:12,020 - INFO - Поисковый запрос: 1
+2024-12-01 15:33:12,021 - INFO - Найдено записей: 1
+2024-12-01 15:33:12,022 - INFO - ROLLBACK
+2024-12-01 15:33:17,091 - INFO - BEGIN (implicit)
+2024-12-01 15:33:17,093 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (lower(books.title) LIKE '%' || ? || '%') OR (lower(books.author) LIKE '%' || ? || '%') OR (lower(books.genre) LIKE '%' || ? || '%')
+2024-12-01 15:33:17,093 - INFO - [generated in 0.00048s] ('идиот', 'идиот', 'идиот')
+2024-12-01 15:33:17,094 - INFO - Поисковый запрос: идиот
+2024-12-01 15:33:17,094 - INFO - Найдено записей: 0
+2024-12-01 15:33:17,094 - INFO - ROLLBACK
+2024-12-01 15:33:20,714 - INFO - BEGIN (implicit)
+2024-12-01 15:33:20,715 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (lower(books.title) LIKE '%' || ? || '%') OR (lower(books.author) LIKE '%' || ? || '%') OR (lower(books.genre) LIKE '%' || ? || '%')
+2024-12-01 15:33:20,716 - INFO - [cached since 3.623s ago] ('идиот', 'идиот', 'идиот')
+2024-12-01 15:33:20,717 - INFO - Поисковый запрос: идиот
+2024-12-01 15:33:20,717 - INFO - Найдено записей: 0
+2024-12-01 15:33:20,718 - INFO - ROLLBACK
+2024-12-01 15:33:25,983 - INFO - BEGIN (implicit)
+2024-12-01 15:33:25,984 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (lower(books.title) LIKE '%' || ? || '%') OR (lower(books.author) LIKE '%' || ? || '%') OR (lower(books.genre) LIKE '%' || ? || '%')
+2024-12-01 15:33:25,984 - INFO - [cached since 8.892s ago] ('иди', 'иди', 'иди')
+2024-12-01 15:33:25,986 - INFO - Поисковый запрос: иди
+2024-12-01 15:33:25,986 - INFO - Найдено записей: 0
+2024-12-01 15:33:25,987 - INFO - ROLLBACK
+2024-12-01 15:33:31,291 - INFO - BEGIN (implicit)
+2024-12-01 15:33:31,291 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (lower(books.title) LIKE '%' || ? || '%') OR (lower(books.author) LIKE '%' || ? || '%') OR (lower(books.genre) LIKE '%' || ? || '%')
+2024-12-01 15:33:31,292 - INFO - [cached since 14.2s ago] ('путешествие', 'путешествие', 'путешествие')
+2024-12-01 15:33:31,292 - INFO - Поисковый запрос: путешествие
+2024-12-01 15:33:31,293 - INFO - Найдено записей: 0
+2024-12-01 15:33:31,293 - INFO - ROLLBACK
+2024-12-01 15:33:34,214 - INFO - BEGIN (implicit)
+2024-12-01 15:33:34,215 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (lower(books.title) LIKE '%' || ? || '%') OR (lower(books.author) LIKE '%' || ? || '%') OR (lower(books.genre) LIKE '%' || ? || '%')
+2024-12-01 15:33:34,215 - INFO - [cached since 28.07s ago] ('19', '19', '19')
+2024-12-01 15:33:34,216 - INFO - Поисковый запрос: 19
+2024-12-01 15:33:34,217 - INFO - Найдено записей: 1
+2024-12-01 15:33:34,217 - INFO - ROLLBACK
+2024-12-01 15:36:13,622 - INFO - BEGIN (implicit)
+2024-12-01 15:36:13,623 - INFO - SELECT 1
+2024-12-01 15:36:13,623 - INFO - [generated in 0.00160s] ()
+2024-12-01 15:36:13,624 - INFO - ROLLBACK
+2024-12-01 15:36:20,382 - INFO - BEGIN (implicit)
+2024-12-01 15:36:20,387 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:36:20,388 - INFO - [generated in 0.00048s] ('u1', '123', 1, 0)
+2024-12-01 15:36:20,389 - INFO - ROLLBACK
+2024-12-01 15:36:21,332 - INFO - BEGIN (implicit)
+2024-12-01 15:36:21,334 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:36:21,334 - INFO - [generated in 0.00027s] ()
+2024-12-01 15:36:21,335 - INFO - ROLLBACK
+2024-12-01 15:36:32,469 - INFO - BEGIN (implicit)
+2024-12-01 15:36:32,472 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:36:32,473 - INFO - [generated in 0.00035s] ('%19%', '%19%', '%19%')
+2024-12-01 15:36:32,473 - INFO - Поисковый запрос: 19
+2024-12-01 15:36:32,474 - INFO - Найдено записей: 1
+2024-12-01 15:36:32,474 - INFO - ROLLBACK
+2024-12-01 15:36:35,760 - INFO - BEGIN (implicit)
+2024-12-01 15:36:35,761 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:36:35,762 - INFO - [cached since 3.289s ago] ('%98%', '%98%', '%98%')
+2024-12-01 15:36:35,763 - INFO - Поисковый запрос: 98
+2024-12-01 15:36:35,764 - INFO - Найдено записей: 1
+2024-12-01 15:36:35,765 - INFO - ROLLBACK
+2024-12-01 15:36:46,544 - INFO - BEGIN (implicit)
+2024-12-01 15:36:46,545 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:36:46,546 - INFO - [generated in 0.00038s] ('%джордж%', '%джордж%', '%джордж%')
+2024-12-01 15:36:46,547 - INFO - Поисковый запрос: Джордж
+2024-12-01 15:36:46,547 - INFO - Найдено записей: 0
+2024-12-01 15:36:46,547 - INFO - ROLLBACK
+2024-12-01 15:36:50,327 - INFO - BEGIN (implicit)
+2024-12-01 15:36:50,327 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:36:50,328 - INFO - [cached since 3.782s ago] ('%путеш%', '%путеш%', '%путеш%')
+2024-12-01 15:36:50,330 - INFO - Поисковый запрос: Путеш
+2024-12-01 15:36:50,330 - INFO - Найдено записей: 0
+2024-12-01 15:36:50,331 - INFO - ROLLBACK
+2024-12-01 15:38:44,310 - INFO - BEGIN (implicit)
+2024-12-01 15:38:44,310 - INFO - SELECT 1
+2024-12-01 15:38:44,310 - INFO - [generated in 0.00073s] ()
+2024-12-01 15:38:44,310 - INFO - ROLLBACK
+2024-12-01 15:38:55,031 - INFO - BEGIN (implicit)
+2024-12-01 15:38:55,037 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 15:38:55,037 - INFO - [generated in 0.00048s] ('u1', '123', 1, 0)
+2024-12-01 15:38:55,039 - INFO - ROLLBACK
+2024-12-01 15:38:56,729 - INFO - BEGIN (implicit)
+2024-12-01 15:38:56,731 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 15:38:56,731 - INFO - [generated in 0.00033s] ()
+2024-12-01 15:38:56,732 - INFO - ROLLBACK
+2024-12-01 15:39:00,410 - INFO - Исходный поисковый запрос: 19
+2024-12-01 15:39:00,412 - INFO - BEGIN (implicit)
+2024-12-01 15:39:00,417 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:39:00,417 - INFO - [generated in 0.00064s] ('%19%', '%19%', '%19%')
+2024-12-01 15:39:00,419 - INFO - Найдено записей: 1
+2024-12-01 15:39:00,419 - INFO - Проверяем книгу: 1984, автор: Джордж Оруэлл, жанр: Антиутопия
+2024-12-01 15:39:00,420 - INFO - ROLLBACK
+2024-12-01 15:39:18,077 - INFO - Исходный поисковый запрос: Пут
+2024-12-01 15:39:18,079 - INFO - BEGIN (implicit)
+2024-12-01 15:39:18,081 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:39:18,082 - INFO - [generated in 0.00060s] ('%пут%', '%пут%', '%пут%')
+2024-12-01 15:39:18,082 - INFO - Найдено записей: 0
+2024-12-01 15:39:18,083 - INFO - ROLLBACK
+2024-12-01 15:39:23,253 - INFO - Исходный поисковый запрос: Джо
+2024-12-01 15:39:23,255 - INFO - BEGIN (implicit)
+2024-12-01 15:39:23,255 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:39:23,256 - INFO - [cached since 5.175s ago] ('%джо%', '%джо%', '%джо%')
+2024-12-01 15:39:23,257 - INFO - Найдено записей: 0
+2024-12-01 15:39:23,258 - INFO - ROLLBACK
+2024-12-01 15:39:27,864 - INFO - Исходный поисковый запрос: 84
+2024-12-01 15:39:27,865 - INFO - BEGIN (implicit)
+2024-12-01 15:39:27,865 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 15:39:27,866 - INFO - [cached since 27.45s ago] ('%84%', '%84%', '%84%')
+2024-12-01 15:39:27,866 - INFO - Найдено записей: 1
+2024-12-01 15:39:27,867 - INFO - Проверяем книгу: 1984, автор: Джордж Оруэлл, жанр: Антиутопия
+2024-12-01 15:39:27,867 - INFO - ROLLBACK
+2024-12-01 16:04:30,502 - INFO - BEGIN (implicit)
+2024-12-01 16:04:30,502 - INFO - SELECT 1
+2024-12-01 16:04:30,503 - INFO - [generated in 0.00085s] ()
+2024-12-01 16:04:30,503 - INFO - ROLLBACK
+2024-12-01 16:04:38,043 - INFO - BEGIN (implicit)
+2024-12-01 16:04:38,048 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 16:04:38,049 - INFO - [generated in 0.00068s] ('u1', '123', 1, 0)
+2024-12-01 16:04:38,051 - INFO - ROLLBACK
+2024-12-01 16:04:39,116 - INFO - BEGIN (implicit)
+2024-12-01 16:04:39,117 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 16:04:39,118 - INFO - [generated in 0.00028s] ()
+2024-12-01 16:04:39,119 - INFO - ROLLBACK
+2024-12-01 16:04:42,771 - ERROR - Ошибка поиска: unsupported operand type(s) for |: 'int' and 'Function'
+2024-12-01 16:04:54,466 - ERROR - Ошибка поиска: unsupported operand type(s) for |: 'int' and 'Function'
+2024-12-01 16:08:54,901 - INFO - BEGIN (implicit)
+2024-12-01 16:08:54,901 - INFO - SELECT 1
+2024-12-01 16:08:54,902 - INFO - [generated in 0.00072s] ()
+2024-12-01 16:08:54,902 - INFO - ROLLBACK
+2024-12-01 16:09:09,975 - INFO - BEGIN (implicit)
+2024-12-01 16:09:09,981 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 16:09:09,981 - INFO - [generated in 0.00047s] ('u1', '123', 1, 0)
+2024-12-01 16:09:09,983 - INFO - ROLLBACK
+2024-12-01 16:09:11,295 - INFO - BEGIN (implicit)
+2024-12-01 16:09:11,297 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 16:09:11,297 - INFO - [generated in 0.00051s] ()
+2024-12-01 16:09:11,299 - INFO - ROLLBACK
+2024-12-01 16:09:17,760 - INFO - BEGIN (implicit)
+2024-12-01 16:09:17,765 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE instr(books.title, ?) > ? OR instr(books.author, ?) > ? OR instr(books.genre, ?) > ?
+2024-12-01 16:09:17,765 - INFO - [generated in 0.00071s] ('19', 0, '19', 0, '19', 0)
+2024-12-01 16:09:17,767 - INFO - Поисковый запрос: 19
+2024-12-01 16:09:17,767 - INFO - Найдено записей: 1
+2024-12-01 16:09:17,768 - INFO - ROLLBACK
+2024-12-01 16:09:23,047 - INFO - BEGIN (implicit)
+2024-12-01 16:09:23,050 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE instr(books.title, ?) > ? OR instr(books.author, ?) > ? OR instr(books.genre, ?) > ?
+2024-12-01 16:09:23,051 - INFO - [generated in 0.00065s] ('Пут', 0, 'Пут', 0, 'Пут', 0)
+2024-12-01 16:09:23,052 - INFO - Поисковый запрос: Пут
+2024-12-01 16:09:23,052 - INFO - Найдено записей: 1
+2024-12-01 16:09:23,053 - INFO - ROLLBACK
+2024-12-01 16:09:28,106 - INFO - BEGIN (implicit)
+2024-12-01 16:09:28,108 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE instr(books.title, ?) > ? OR instr(books.author, ?) > ? OR instr(books.genre, ?) > ?
+2024-12-01 16:09:28,108 - INFO - [cached since 5.058s ago] ('Джо', 0, 'Джо', 0, 'Джо', 0)
+2024-12-01 16:09:28,110 - INFO - Поисковый запрос: Джо
+2024-12-01 16:09:28,110 - INFO - Найдено записей: 1
+2024-12-01 16:09:28,111 - INFO - ROLLBACK
+2024-12-01 16:10:39,785 - INFO - BEGIN (implicit)
+2024-12-01 16:10:39,786 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE instr(books.title, ?) > ? OR instr(books.author, ?) > ? OR instr(books.genre, ?) > ?
+2024-12-01 16:10:39,787 - INFO - [cached since 76.74s ago] ('иди', 0, 'иди', 0, 'иди', 0)
+2024-12-01 16:10:39,788 - INFO - Поисковый запрос: иди
+2024-12-01 16:10:39,788 - INFO - Найдено записей: 0
+2024-12-01 16:10:39,789 - INFO - ROLLBACK
+2024-12-01 16:10:45,554 - INFO - BEGIN (implicit)
+2024-12-01 16:10:45,556 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE instr(books.title, ?) > ? OR instr(books.author, ?) > ? OR instr(books.genre, ?) > ?
+2024-12-01 16:10:45,556 - INFO - [cached since 82.51s ago] ('Иди', 0, 'Иди', 0, 'Иди', 0)
+2024-12-01 16:10:45,558 - INFO - Поисковый запрос: Иди
+2024-12-01 16:10:45,558 - INFO - Найдено записей: 3
+2024-12-01 16:10:45,559 - INFO - ROLLBACK
+2024-12-01 16:11:02,436 - INFO - BEGIN (implicit)
+2024-12-01 16:11:02,438 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE instr(books.title, ?) > ? OR instr(books.author, ?) > ? OR instr(books.genre, ?) > ?
+2024-12-01 16:11:02,438 - INFO - [cached since 99.39s ago] ('на', 0, 'на', 0, 'на', 0)
+2024-12-01 16:11:02,440 - INFO - Поисковый запрос: на
+2024-12-01 16:11:02,440 - INFO - Найдено записей: 6
+2024-12-01 16:11:02,443 - INFO - ROLLBACK
+2024-12-01 16:12:27,356 - INFO - BEGIN (implicit)
+2024-12-01 16:12:27,357 - INFO - SELECT 1
+2024-12-01 16:12:27,357 - INFO - [generated in 0.00063s] ()
+2024-12-01 16:12:27,357 - INFO - ROLLBACK
+2024-12-01 16:12:34,723 - INFO - BEGIN (implicit)
+2024-12-01 16:12:34,729 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 16:12:34,730 - INFO - [generated in 0.00043s] ('u1', '123', 1, 0)
+2024-12-01 16:12:34,731 - INFO - ROLLBACK
+2024-12-01 16:12:36,534 - INFO - BEGIN (implicit)
+2024-12-01 16:12:36,536 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 16:12:36,536 - INFO - [generated in 0.00027s] ()
+2024-12-01 16:12:36,537 - INFO - ROLLBACK
+2024-12-01 16:12:42,055 - INFO - BEGIN (implicit)
+2024-12-01 16:12:42,059 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 16:12:42,060 - INFO - [generated in 0.00081s] ('%иди%', '%иди%', '%иди%')
+2024-12-01 16:12:42,062 - INFO - Поисковый запрос: иди
+2024-12-01 16:12:42,062 - INFO - Найдено записей: 0
+2024-12-01 16:12:42,063 - INFO - ROLLBACK
+2024-12-01 16:12:45,957 - INFO - BEGIN (implicit)
+2024-12-01 16:12:45,958 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 16:12:45,959 - INFO - [cached since 3.899s ago] ('%иди%', '%иди%', '%иди%')
+2024-12-01 16:12:45,960 - INFO - Поисковый запрос: Иди
+2024-12-01 16:12:45,960 - INFO - Найдено записей: 0
+2024-12-01 16:12:45,961 - INFO - ROLLBACK
+2024-12-01 16:12:46,519 - INFO - BEGIN (implicit)
+2024-12-01 16:12:46,520 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 16:12:46,520 - INFO - [cached since 4.46s ago] ('%иди%', '%иди%', '%иди%')
+2024-12-01 16:12:46,521 - INFO - Поисковый запрос: Иди
+2024-12-01 16:12:46,522 - INFO - Найдено записей: 0
+2024-12-01 16:12:46,523 - INFO - ROLLBACK
+2024-12-01 16:12:46,705 - INFO - BEGIN (implicit)
+2024-12-01 16:12:46,705 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 16:12:46,705 - INFO - [cached since 4.646s ago] ('%иди%', '%иди%', '%иди%')
+2024-12-01 16:12:46,706 - INFO - Поисковый запрос: Иди
+2024-12-01 16:12:46,706 - INFO - Найдено записей: 0
+2024-12-01 16:12:46,707 - INFO - ROLLBACK
+2024-12-01 16:12:53,321 - INFO - BEGIN (implicit)
+2024-12-01 16:12:53,323 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE ? OR lower(books.author) LIKE ? OR lower(books.genre) LIKE ?
+2024-12-01 16:12:53,323 - INFO - [generated in 0.00055s] ('%19%', '%19%', '%19%')
+2024-12-01 16:12:53,325 - INFO - Поисковый запрос: 19
+2024-12-01 16:12:53,325 - INFO - Найдено записей: 1
+2024-12-01 16:12:53,325 - INFO - ROLLBACK
+2024-12-01 16:14:16,704 - INFO - BEGIN (implicit)
+2024-12-01 16:14:16,704 - INFO - SELECT 1
+2024-12-01 16:14:16,704 - INFO - [generated in 0.00061s] ()
+2024-12-01 16:14:16,705 - INFO - ROLLBACK
+2024-12-01 16:14:24,526 - INFO - BEGIN (implicit)
+2024-12-01 16:14:24,531 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 16:14:24,531 - INFO - [generated in 0.00037s] ('u1', '123', 1, 0)
+2024-12-01 16:14:24,533 - INFO - ROLLBACK
+2024-12-01 16:14:26,236 - INFO - BEGIN (implicit)
+2024-12-01 16:14:26,238 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 16:14:26,238 - INFO - [generated in 0.00031s] ()
+2024-12-01 16:14:26,240 - INFO - ROLLBACK
+2024-12-01 16:14:29,410 - INFO - BEGIN (implicit)
+2024-12-01 16:14:29,413 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (books.title COLLATE "NOCASE") LIKE ? OR (books.author COLLATE "NOCASE") LIKE ? OR (books.genre COLLATE "NOCASE") LIKE ?
+2024-12-01 16:14:29,414 - INFO - [generated in 0.00060s] ('%19%', '%19%', '%19%')
+2024-12-01 16:14:29,415 - INFO - Поисковый запрос: 19
+2024-12-01 16:14:29,416 - INFO - Найдено записей: 1
+2024-12-01 16:14:29,416 - INFO - ROLLBACK
+2024-12-01 16:14:35,603 - INFO - BEGIN (implicit)
+2024-12-01 16:14:35,604 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (books.title COLLATE "NOCASE") LIKE ? OR (books.author COLLATE "NOCASE") LIKE ? OR (books.genre COLLATE "NOCASE") LIKE ?
+2024-12-01 16:14:35,604 - INFO - [cached since 6.19s ago] ('%на%', '%на%', '%на%')
+2024-12-01 16:14:35,606 - INFO - Поисковый запрос: на
+2024-12-01 16:14:35,606 - INFO - Найдено записей: 6
+2024-12-01 16:14:35,608 - INFO - ROLLBACK
+2024-12-01 16:14:38,625 - INFO - BEGIN (implicit)
+2024-12-01 16:14:38,625 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (books.title COLLATE "NOCASE") LIKE ? OR (books.author COLLATE "NOCASE") LIKE ? OR (books.genre COLLATE "NOCASE") LIKE ?
+2024-12-01 16:14:38,625 - INFO - [cached since 9.212s ago] ('%иди%', '%иди%', '%иди%')
+2024-12-01 16:14:38,626 - INFO - Поисковый запрос: иди
+2024-12-01 16:14:38,627 - INFO - Найдено записей: 0
+2024-12-01 16:14:38,627 - INFO - ROLLBACK
+2024-12-01 16:14:42,317 - INFO - BEGIN (implicit)
+2024-12-01 16:14:42,318 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE (books.title COLLATE "NOCASE") LIKE ? OR (books.author COLLATE "NOCASE") LIKE ? OR (books.genre COLLATE "NOCASE") LIKE ?
+2024-12-01 16:14:42,319 - INFO - [cached since 12.9s ago] ('%Иди%', '%Иди%', '%Иди%')
+2024-12-01 16:14:42,320 - INFO - Поисковый запрос: Иди
+2024-12-01 16:14:42,321 - INFO - Найдено записей: 3
+2024-12-01 16:14:42,322 - INFO - ROLLBACK
+2024-12-01 16:16:38,856 - INFO - BEGIN (implicit)
+2024-12-01 16:16:38,856 - INFO - SELECT 1
+2024-12-01 16:16:38,857 - INFO - [generated in 0.00076s] ()
+2024-12-01 16:16:38,857 - INFO - ROLLBACK
+2024-12-01 16:16:46,083 - INFO - BEGIN (implicit)
+2024-12-01 16:16:46,087 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 16:16:46,087 - INFO - [generated in 0.00038s] ('u1', '123', 1, 0)
+2024-12-01 16:16:46,089 - INFO - ROLLBACK
+2024-12-01 16:16:46,894 - INFO - BEGIN (implicit)
+2024-12-01 16:16:46,896 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 16:16:46,896 - INFO - [generated in 0.00031s] ()
+2024-12-01 16:16:46,897 - INFO - ROLLBACK
+2024-12-01 16:16:50,582 - INFO - BEGIN (implicit)
+2024-12-01 16:16:50,586 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 16:16:50,586 - INFO - [generated in 0.00064s] ('%19%', '%19%', '%19%')
+2024-12-01 16:16:50,588 - INFO - Поисковый запрос: 19
+2024-12-01 16:16:50,588 - INFO - Найдено записей: 1
+2024-12-01 16:16:50,589 - INFO - ROLLBACK
+2024-12-01 16:16:56,382 - INFO - BEGIN (implicit)
+2024-12-01 16:16:56,383 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 16:16:56,383 - INFO - [cached since 5.798s ago] ('%на%', '%на%', '%на%')
+2024-12-01 16:16:56,384 - INFO - Поисковый запрос: на
+2024-12-01 16:16:56,384 - INFO - Найдено записей: 6
+2024-12-01 16:16:56,385 - INFO - ROLLBACK
+2024-12-01 16:16:59,876 - INFO - BEGIN (implicit)
+2024-12-01 16:16:59,877 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 16:16:59,878 - INFO - [cached since 9.293s ago] ('%иди%', '%иди%', '%иди%')
+2024-12-01 16:16:59,879 - INFO - Поисковый запрос: иди
+2024-12-01 16:16:59,879 - INFO - Найдено записей: 0
+2024-12-01 16:16:59,881 - INFO - ROLLBACK
+2024-12-01 16:17:03,086 - INFO - BEGIN (implicit)
+2024-12-01 16:17:03,087 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 16:17:03,087 - INFO - [cached since 12.5s ago] ('%Иди%', '%Иди%', '%Иди%')
+2024-12-01 16:17:03,089 - INFO - Поисковый запрос: Иди
+2024-12-01 16:17:03,089 - INFO - Найдено записей: 3
+2024-12-01 16:17:03,090 - INFO - ROLLBACK
+2024-12-01 17:12:34,702 - INFO - BEGIN (implicit)
+2024-12-01 17:12:34,704 - INFO - SELECT 1
+2024-12-01 17:12:34,704 - INFO - [generated in 0.00074s] ()
+2024-12-01 17:12:34,704 - INFO - ROLLBACK
+2024-12-01 17:12:44,333 - INFO - BEGIN (implicit)
+2024-12-01 17:12:44,337 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:12:44,337 - INFO - [generated in 0.00040s] ('u1', '123', 1, 0)
+2024-12-01 17:12:44,339 - INFO - ROLLBACK
+2024-12-01 17:12:45,465 - INFO - BEGIN (implicit)
+2024-12-01 17:12:45,467 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:12:45,467 - INFO - [generated in 0.00033s] ()
+2024-12-01 17:12:45,468 - INFO - ROLLBACK
+2024-12-01 17:13:06,393 - INFO - BEGIN (implicit)
+2024-12-01 17:13:06,393 - INFO - SELECT 1
+2024-12-01 17:13:06,393 - INFO - [generated in 0.00063s] ()
+2024-12-01 17:13:06,394 - INFO - ROLLBACK
+2024-12-01 17:13:08,534 - INFO - BEGIN (implicit)
+2024-12-01 17:13:08,537 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:13:08,538 - INFO - [generated in 0.00046s] ('', '', 1, 0)
+2024-12-01 17:13:08,539 - INFO - ROLLBACK
+2024-12-01 17:18:10,361 - INFO - BEGIN (implicit)
+2024-12-01 17:18:10,361 - INFO - SELECT 1
+2024-12-01 17:18:10,361 - INFO - [generated in 0.00075s] ()
+2024-12-01 17:18:10,362 - INFO - ROLLBACK
+2024-12-01 17:18:21,255 - INFO - BEGIN (implicit)
+2024-12-01 17:18:21,262 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:18:21,262 - INFO - [generated in 0.00047s] ('u1', '123', 1, 0)
+2024-12-01 17:18:21,263 - INFO - ROLLBACK
+2024-12-01 17:18:23,077 - INFO - BEGIN (implicit)
+2024-12-01 17:18:23,080 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:18:23,080 - INFO - [generated in 0.00033s] ()
+2024-12-01 17:18:23,082 - INFO - ROLLBACK
+2024-12-01 17:23:30,425 - INFO - BEGIN (implicit)
+2024-12-01 17:23:30,425 - INFO - SELECT 1
+2024-12-01 17:23:30,426 - INFO - [generated in 0.00075s] ()
+2024-12-01 17:23:30,426 - INFO - ROLLBACK
+2024-12-01 17:23:41,548 - INFO - BEGIN (implicit)
+2024-12-01 17:23:41,555 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:23:41,555 - INFO - [generated in 0.00077s] ('l1', 'librarian123', 1, 0)
+2024-12-01 17:23:41,557 - INFO - ROLLBACK
+2024-12-01 17:23:53,721 - INFO - BEGIN (implicit)
+2024-12-01 17:23:53,722 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:23:53,723 - INFO - [cached since 12.17s ago] ('u1', '123', 1, 0)
+2024-12-01 17:23:53,724 - INFO - ROLLBACK
+2024-12-01 17:23:54,396 - INFO - BEGIN (implicit)
+2024-12-01 17:23:54,397 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:23:54,397 - INFO - [generated in 0.00026s] ()
+2024-12-01 17:23:54,399 - INFO - ROLLBACK
+2024-12-01 17:24:23,588 - INFO - BEGIN (implicit)
+2024-12-01 17:24:23,588 - INFO - SELECT 1
+2024-12-01 17:24:23,588 - INFO - [generated in 0.00064s] ()
+2024-12-01 17:24:23,590 - INFO - ROLLBACK
+2024-12-01 17:24:43,786 - INFO - BEGIN (implicit)
+2024-12-01 17:24:43,791 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:24:43,792 - INFO - [generated in 0.00075s] ('l1', 'librarian123', 1, 0)
+2024-12-01 17:24:43,794 - INFO - ROLLBACK
+2024-12-01 17:25:14,578 - INFO - BEGIN (implicit)
+2024-12-01 17:25:14,579 - INFO - SELECT 1
+2024-12-01 17:25:14,579 - INFO - [generated in 0.00136s] ()
+2024-12-01 17:25:14,580 - INFO - ROLLBACK
+2024-12-01 17:25:20,584 - INFO - BEGIN (implicit)
+2024-12-01 17:25:20,588 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:25:20,588 - INFO - [generated in 0.00037s] ('u1', '123', 1, 0)
+2024-12-01 17:25:20,589 - INFO - ROLLBACK
+2024-12-01 17:25:21,126 - INFO - BEGIN (implicit)
+2024-12-01 17:25:21,130 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:25:21,130 - INFO - [generated in 0.00057s] ()
+2024-12-01 17:25:21,132 - INFO - ROLLBACK
+2024-12-01 17:25:25,399 - INFO - BEGIN (implicit)
+2024-12-01 17:25:25,401 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:25:25,402 - INFO - [generated in 0.00079s] ('Моби Дик', 1, 0)
+2024-12-01 17:25:25,408 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:25:25,409 - INFO - [generated in 0.00098s] (1, 10, 'borrowed', 1, 0)
+2024-12-01 17:25:31,685 - INFO - BEGIN (implicit)
+2024-12-01 17:25:31,686 - INFO - SELECT 1
+2024-12-01 17:25:31,686 - INFO - [generated in 0.00072s] ()
+2024-12-01 17:25:31,687 - INFO - ROLLBACK
+2024-12-01 17:25:41,465 - INFO - BEGIN (implicit)
+2024-12-01 17:25:41,471 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:25:41,472 - INFO - [generated in 0.00062s] ('l1', 'librarian123', 1, 0)
+2024-12-01 17:25:41,473 - INFO - ROLLBACK
+2024-12-01 17:26:38,426 - INFO - BEGIN (implicit)
+2024-12-01 17:26:38,426 - INFO - SELECT 1
+2024-12-01 17:26:38,427 - INFO - [generated in 0.00068s] ()
+2024-12-01 17:26:38,427 - INFO - ROLLBACK
+2024-12-01 17:26:45,703 - INFO - BEGIN (implicit)
+2024-12-01 17:26:45,707 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:26:45,707 - INFO - [generated in 0.00040s] ('l1', 'librarian123', 1, 0)
+2024-12-01 17:26:45,709 - INFO - ROLLBACK
+2024-12-01 17:27:04,721 - INFO - BEGIN (implicit)
+2024-12-01 17:27:04,721 - INFO - SELECT 1
+2024-12-01 17:27:04,722 - INFO - [generated in 0.00091s] ()
+2024-12-01 17:27:04,722 - INFO - ROLLBACK
+2024-12-01 17:27:18,301 - INFO - BEGIN (implicit)
+2024-12-01 17:27:18,304 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:27:18,305 - INFO - [generated in 0.00051s] ('l1', 'librarian123', 1, 0)
+2024-12-01 17:27:18,307 - INFO - ROLLBACK
+2024-12-01 17:27:27,017 - INFO - BEGIN (implicit)
+2024-12-01 17:27:27,018 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:27:27,018 - INFO - [cached since 8.714s ago] ('u1', '123', 1, 0)
+2024-12-01 17:27:27,019 - INFO - ROLLBACK
+2024-12-01 17:27:28,000 - INFO - BEGIN (implicit)
+2024-12-01 17:27:28,002 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:27:28,002 - INFO - [generated in 0.00029s] ()
+2024-12-01 17:27:28,003 - INFO - ROLLBACK
+2024-12-01 17:30:24,577 - INFO - BEGIN (implicit)
+2024-12-01 17:30:24,577 - INFO - SELECT 1
+2024-12-01 17:30:24,577 - INFO - [generated in 0.00065s] ()
+2024-12-01 17:30:24,578 - INFO - ROLLBACK
+2024-12-01 17:30:30,728 - INFO - BEGIN (implicit)
+2024-12-01 17:30:30,732 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:30:30,732 - INFO - [generated in 0.00048s] ('u1', '123', 1, 0)
+2024-12-01 17:30:30,733 - INFO - ROLLBACK
+2024-12-01 17:30:31,474 - INFO - BEGIN (implicit)
+2024-12-01 17:30:31,475 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:30:31,476 - INFO - [generated in 0.00031s] ()
+2024-12-01 17:30:31,477 - INFO - ROLLBACK
+2024-12-01 17:30:40,278 - INFO - BEGIN (implicit)
+2024-12-01 17:30:40,279 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:30:40,280 - INFO - [cached since 9.548s ago] ('l1', 'librarian123', 1, 0)
+2024-12-01 17:30:40,281 - INFO - ROLLBACK
+2024-12-01 17:30:48,696 - INFO - BEGIN (implicit)
+2024-12-01 17:30:48,697 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:30:48,697 - INFO - [cached since 17.97s ago] ('u1', '123', 1, 0)
+2024-12-01 17:30:48,699 - INFO - ROLLBACK
+2024-12-01 17:30:51,204 - INFO - BEGIN (implicit)
+2024-12-01 17:30:51,205 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:30:51,205 - INFO - [cached since 19.73s ago] ()
+2024-12-01 17:30:51,206 - INFO - ROLLBACK
+2024-12-01 17:31:13,404 - INFO - BEGIN (implicit)
+2024-12-01 17:31:13,405 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:31:13,406 - INFO - [cached since 42.67s ago] ('ivanov.i', 'password1', 1, 0)
+2024-12-01 17:31:13,407 - INFO - ROLLBACK
+2024-12-01 17:31:14,363 - INFO - BEGIN (implicit)
+2024-12-01 17:31:14,363 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:31:14,363 - INFO - [cached since 42.89s ago] ()
+2024-12-01 17:31:14,364 - INFO - ROLLBACK
+2024-12-01 17:31:16,328 - INFO - BEGIN (implicit)
+2024-12-01 17:31:16,329 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:31:16,330 - INFO - [generated in 0.00042s] ('Моби Дик', 1, 0)
+2024-12-01 17:31:16,334 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:31:16,334 - INFO - [generated in 0.00048s] (3, 10, 'borrowed', 1, 0)
+2024-12-01 17:31:16,347 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 17:31:16,347 - INFO - [generated in 0.00048s] (0, 10)
+2024-12-01 17:31:16,353 - INFO - INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, status) VALUES (?, ?, ?, ?, ?)
+2024-12-01 17:31:16,353 - INFO - [generated in 0.00044s] (3, 10, '2024-12-01 14:31:16.353454', None, 'borrowed')
+2024-12-01 17:31:16,355 - INFO - COMMIT
+2024-12-01 17:31:16,360 - INFO - BEGIN (implicit)
+2024-12-01 17:31:16,361 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:31:16,361 - INFO - [cached since 44.89s ago] ()
+2024-12-01 17:31:16,362 - INFO - ROLLBACK
+2024-12-01 17:31:21,365 - INFO - BEGIN (implicit)
+2024-12-01 17:31:21,366 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:31:21,366 - INFO - [cached since 5.037s ago] ('Моби Дик', 1, 0)
+2024-12-01 17:31:22,516 - INFO - ROLLBACK
+2024-12-01 17:31:22,517 - INFO - BEGIN (implicit)
+2024-12-01 17:31:22,517 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:31:22,518 - INFO - [cached since 51.04s ago] ()
+2024-12-01 17:31:22,519 - INFO - ROLLBACK
+2024-12-01 17:31:36,088 - INFO - BEGIN (implicit)
+2024-12-01 17:31:36,088 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:31:36,088 - INFO - [cached since 65.36s ago] ('u1', '123', 1, 0)
+2024-12-01 17:31:36,089 - INFO - ROLLBACK
+2024-12-01 17:31:37,068 - INFO - BEGIN (implicit)
+2024-12-01 17:31:37,069 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:31:37,069 - INFO - [cached since 65.59s ago] ()
+2024-12-01 17:31:37,070 - INFO - ROLLBACK
+2024-12-01 17:31:48,647 - INFO - BEGIN (implicit)
+2024-12-01 17:31:48,648 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:31:48,648 - INFO - [cached since 77.92s ago] ('l1', 'librarian123', 1, 0)
+2024-12-01 17:31:48,650 - INFO - ROLLBACK
+2024-12-01 17:31:57,946 - INFO - BEGIN (implicit)
+2024-12-01 17:31:57,954 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.status = ?
+2024-12-01 17:31:57,954 - INFO - [generated in 0.00773s] ('borrowed',)
+2024-12-01 17:31:57,955 - INFO - ROLLBACK
+2024-12-01 17:32:19,695 - INFO - BEGIN (implicit)
+2024-12-01 17:32:19,697 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.id = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:32:19,698 - INFO - [generated in 0.00070s] (11, 1, 0)
+2024-12-01 17:32:19,701 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.id = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:32:19,702 - INFO - [generated in 0.00058s] (10, 1, 0)
+2024-12-01 17:32:19,704 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 17:32:19,704 - INFO - [cached since 63.36s ago] (1, 10)
+2024-12-01 17:32:19,714 - INFO - UPDATE borrow_records SET status=? WHERE borrow_records.id = ?
+2024-12-01 17:32:19,714 - INFO - [generated in 0.00036s] ('returned', 11)
+2024-12-01 17:32:19,715 - INFO - COMMIT
+2024-12-01 17:32:21,193 - INFO - BEGIN (implicit)
+2024-12-01 17:32:21,194 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.status = ?
+2024-12-01 17:32:21,194 - INFO - [cached since 23.25s ago] ('borrowed',)
+2024-12-01 17:32:21,197 - INFO - ROLLBACK
+2024-12-01 17:32:36,585 - INFO - BEGIN (implicit)
+2024-12-01 17:32:36,587 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 17:32:36,587 - INFO - [cached since 125.9s ago] ('u1', '123', 1, 0)
+2024-12-01 17:32:36,589 - INFO - ROLLBACK
+2024-12-01 17:32:37,440 - INFO - BEGIN (implicit)
+2024-12-01 17:32:37,440 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 17:32:37,441 - INFO - [cached since 126s ago] ()
+2024-12-01 17:32:37,442 - INFO - ROLLBACK
+2024-12-01 18:38:05,540 - INFO - BEGIN (implicit)
+2024-12-01 18:38:05,540 - INFO - SELECT 1
+2024-12-01 18:38:05,540 - INFO - [generated in 0.00062s] ()
+2024-12-01 18:38:05,541 - INFO - ROLLBACK
+2024-12-01 18:38:17,389 - INFO - BEGIN (implicit)
+2024-12-01 18:38:17,392 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:38:17,392 - INFO - [generated in 0.00036s] ('l1', 'librarian123', 1, 0)
+2024-12-01 18:38:17,394 - INFO - ROLLBACK
+2024-12-01 18:38:19,628 - INFO - BEGIN (implicit)
+2024-12-01 18:38:19,631 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.status = ?
+2024-12-01 18:38:19,631 - INFO - [generated in 0.00057s] ('borrowed',)
+2024-12-01 18:38:19,632 - INFO - ROLLBACK
+2024-12-01 18:38:28,526 - INFO - BEGIN (implicit)
+2024-12-01 18:38:28,529 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records JOIN users ON users.id = borrow_records.user_id 
+WHERE lower(users.name) LIKE lower(?) AND borrow_records.status = ?
+2024-12-01 18:38:28,529 - INFO - [generated in 0.00038s] ('%u%', 'borrowed')
+2024-12-01 18:38:28,542 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.id = ?
+2024-12-01 18:38:28,543 - INFO - [generated in 0.00038s] (1,)
+2024-12-01 18:38:28,545 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.id = ?
+2024-12-01 18:38:28,545 - INFO - [generated in 0.00032s] (1,)
+2024-12-01 18:38:32,136 - INFO - ROLLBACK
+2024-12-01 18:42:55,941 - INFO - BEGIN (implicit)
+2024-12-01 18:42:55,942 - INFO - SELECT 1
+2024-12-01 18:42:55,942 - INFO - [generated in 0.00113s] ()
+2024-12-01 18:42:55,943 - INFO - ROLLBACK
+2024-12-01 18:43:05,761 - INFO - BEGIN (implicit)
+2024-12-01 18:43:05,768 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:43:05,768 - INFO - [generated in 0.00053s] ('l1', 'librarian123', 1, 0)
+2024-12-01 18:43:05,770 - INFO - ROLLBACK
+2024-12-01 18:43:07,990 - INFO - BEGIN (implicit)
+2024-12-01 18:43:08,003 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE borrow_records.status = ?
+2024-12-01 18:43:08,004 - INFO - [generated in 0.00039s] ('borrowed',)
+2024-12-01 18:45:29,662 - INFO - BEGIN (implicit)
+2024-12-01 18:45:29,663 - INFO - SELECT 1
+2024-12-01 18:45:29,663 - INFO - [generated in 0.00148s] ()
+2024-12-01 18:45:29,664 - INFO - ROLLBACK
+2024-12-01 18:45:48,092 - INFO - BEGIN (implicit)
+2024-12-01 18:45:48,095 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:45:48,096 - INFO - [generated in 0.00038s] ('l1', 'librarian123', 1, 0)
+2024-12-01 18:45:48,097 - INFO - ROLLBACK
+2024-12-01 18:45:52,770 - INFO - BEGIN (implicit)
+2024-12-01 18:45:52,776 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE borrow_records.status = ?
+2024-12-01 18:45:52,777 - INFO - [generated in 0.00036s] ('borrowed',)
+2024-12-01 18:45:52,779 - INFO - ROLLBACK
+2024-12-01 18:46:12,380 - INFO - BEGIN (implicit)
+2024-12-01 18:46:12,384 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records JOIN users ON users.id = borrow_records.user_id LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE lower(users.name) LIKE lower(?) AND borrow_records.status = ?
+2024-12-01 18:46:12,385 - INFO - [generated in 0.00058s] ('%ivanov%', 'borrowed')
+2024-12-01 18:46:12,386 - INFO - ROLLBACK
+2024-12-01 18:46:16,160 - INFO - BEGIN (implicit)
+2024-12-01 18:46:16,161 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records JOIN users ON users.id = borrow_records.user_id LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE lower(users.name) LIKE lower(?) AND borrow_records.status = ?
+2024-12-01 18:46:16,161 - INFO - [cached since 3.777s ago] ('%u%', 'borrowed')
+2024-12-01 18:46:16,164 - INFO - ROLLBACK
+2024-12-01 18:48:58,409 - INFO - BEGIN (implicit)
+2024-12-01 18:48:58,409 - INFO - SELECT 1
+2024-12-01 18:48:58,409 - INFO - [generated in 0.00091s] ()
+2024-12-01 18:48:58,410 - INFO - ROLLBACK
+2024-12-01 18:49:08,724 - INFO - BEGIN (implicit)
+2024-12-01 18:49:08,730 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:49:08,730 - INFO - [generated in 0.00046s] ('l1', 'librarian123', 1, 0)
+2024-12-01 18:49:08,732 - INFO - ROLLBACK
+2024-12-01 18:49:11,711 - INFO - BEGIN (implicit)
+2024-12-01 18:49:11,717 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE borrow_records.status = ?
+2024-12-01 18:49:11,717 - INFO - [generated in 0.00038s] ('borrowed',)
+2024-12-01 18:49:11,719 - INFO - ROLLBACK
+2024-12-01 18:50:51,908 - INFO - BEGIN (implicit)
+2024-12-01 18:50:51,913 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records JOIN users ON users.id = borrow_records.user_id JOIN books ON books.id = borrow_records.book_id 
+WHERE users.name = ? AND books.title = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:50:51,913 - INFO - [generated in 0.00103s] ('u1', 'Моби Дик', 'borrowed', 1, 0)
+2024-12-01 18:50:51,920 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.id = ?
+2024-12-01 18:50:51,920 - INFO - [generated in 0.00053s] (10,)
+2024-12-01 18:50:51,926 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 18:50:51,926 - INFO - [generated in 0.00041s] (2, 10)
+2024-12-01 18:50:51,936 - INFO - UPDATE borrow_records SET status=? WHERE borrow_records.id = ?
+2024-12-01 18:50:51,937 - INFO - [generated in 0.00050s] ('returned', 10)
+2024-12-01 18:50:51,938 - INFO - COMMIT
+2024-12-01 18:50:53,764 - INFO - BEGIN (implicit)
+2024-12-01 18:50:53,764 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE borrow_records.status = ?
+2024-12-01 18:50:53,765 - INFO - [cached since 102s ago] ('borrowed',)
+2024-12-01 18:50:53,767 - INFO - ROLLBACK
+2024-12-01 18:50:55,819 - INFO - BEGIN (implicit)
+2024-12-01 18:50:55,820 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE borrow_records.status = ?
+2024-12-01 18:50:55,820 - INFO - [cached since 104.1s ago] ('borrowed',)
+2024-12-01 18:50:55,822 - INFO - ROLLBACK
+2024-12-01 18:51:21,079 - INFO - BEGIN (implicit)
+2024-12-01 18:51:21,080 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:51:21,081 - INFO - [cached since 132.4s ago] ('u1', '123', 1, 0)
+2024-12-01 18:51:21,083 - INFO - ROLLBACK
+2024-12-01 18:51:22,257 - INFO - BEGIN (implicit)
+2024-12-01 18:51:22,258 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 18:51:22,258 - INFO - [generated in 0.00026s] ()
+2024-12-01 18:51:22,259 - INFO - ROLLBACK
+2024-12-01 18:55:33,287 - INFO - BEGIN (implicit)
+2024-12-01 18:55:33,287 - INFO - SELECT 1
+2024-12-01 18:55:33,288 - INFO - [generated in 0.00081s] ()
+2024-12-01 18:55:33,288 - INFO - ROLLBACK
+2024-12-01 18:55:39,793 - INFO - BEGIN (implicit)
+2024-12-01 18:55:39,798 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:55:39,798 - INFO - [generated in 0.00045s] ('u1', '123', 1, 0)
+2024-12-01 18:55:39,800 - INFO - ROLLBACK
+2024-12-01 18:55:40,578 - INFO - BEGIN (implicit)
+2024-12-01 18:55:40,579 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 18:55:40,579 - INFO - [generated in 0.00031s] ()
+2024-12-01 18:55:40,581 - INFO - ROLLBACK
+2024-12-01 18:55:55,253 - INFO - BEGIN (implicit)
+2024-12-01 18:55:55,256 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 18:55:55,257 - INFO - [generated in 0.00067s] ('%на%', '%на%', '%на%')
+2024-12-01 18:55:55,259 - INFO - ROLLBACK
+2024-12-01 18:56:02,933 - INFO - BEGIN (implicit)
+2024-12-01 18:56:02,934 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:56:02,934 - INFO - [generated in 0.00029s] ('Путешествие на Запал', 1, 0)
+2024-12-01 18:56:02,937 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:56:02,937 - INFO - [generated in 0.00037s] (1, 1, 'borrowed', 1, 0)
+2024-12-01 18:56:07,723 - INFO - BEGIN (implicit)
+2024-12-01 18:56:07,723 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:56:07,724 - INFO - [cached since 4.79s ago] ('Ведьмак: Перекресток Ворона', 1, 0)
+2024-12-01 18:56:07,727 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:56:07,727 - INFO - [cached since 4.79s ago] (1, 11, 'borrowed', 1, 0)
+2024-12-01 18:56:07,732 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 18:56:07,732 - INFO - [generated in 0.00055s] (3, 11)
+2024-12-01 18:56:07,743 - INFO - INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, status) VALUES (?, ?, ?, ?, ?)
+2024-12-01 18:56:07,743 - INFO - [generated in 0.00041s] (1, 11, '2024-12-01 15:56:07.743889', None, 'borrowed')
+2024-12-01 18:56:07,744 - INFO - COMMIT
+2024-12-01 18:56:08,984 - INFO - BEGIN (implicit)
+2024-12-01 18:56:08,985 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 18:56:08,985 - INFO - [cached since 28.41s ago] ()
+2024-12-01 18:56:08,987 - INFO - ROLLBACK
+2024-12-01 18:56:43,775 - INFO - BEGIN (implicit)
+2024-12-01 18:56:43,776 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 18:56:43,777 - INFO - [cached since 63.98s ago] ('l1', 'librarian123', 1, 0)
+2024-12-01 18:56:43,779 - INFO - ROLLBACK
+2024-12-01 18:56:46,177 - INFO - BEGIN (implicit)
+2024-12-01 18:56:46,182 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE borrow_records.status = ?
+2024-12-01 18:56:46,182 - INFO - [generated in 0.00035s] ('borrowed',)
+2024-12-01 18:56:46,184 - INFO - ROLLBACK
+2024-12-01 19:02:35,096 - INFO - BEGIN (implicit)
+2024-12-01 19:02:35,097 - INFO - SELECT 1
+2024-12-01 19:02:35,097 - INFO - [generated in 0.00063s] ()
+2024-12-01 19:02:35,097 - INFO - ROLLBACK
+2024-12-01 19:02:42,886 - INFO - BEGIN (implicit)
+2024-12-01 19:02:42,892 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:02:42,893 - INFO - [generated in 0.00043s] ('u1', '123', 1, 0)
+2024-12-01 19:02:42,894 - INFO - ROLLBACK
+2024-12-01 19:02:44,053 - INFO - BEGIN (implicit)
+2024-12-01 19:02:44,055 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:02:44,055 - INFO - [generated in 0.00029s] ()
+2024-12-01 19:02:44,056 - INFO - ROLLBACK
+2024-12-01 19:02:57,933 - INFO - BEGIN (implicit)
+2024-12-01 19:02:57,936 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 19:02:57,937 - INFO - [generated in 0.00058s] ('%19%', '%19%', '%19%')
+2024-12-01 19:02:57,938 - INFO - ROLLBACK
+2024-12-01 19:03:11,401 - INFO - BEGIN (implicit)
+2024-12-01 19:03:11,402 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 19:03:11,403 - INFO - [cached since 13.47s ago] ('%на%', '%на%', '%на%')
+2024-12-01 19:03:11,404 - INFO - ROLLBACK
+2024-12-01 19:03:15,572 - INFO - BEGIN (implicit)
+2024-12-01 19:03:15,573 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:03:15,573 - INFO - [generated in 0.00029s] ('Шерлок Холмс: Этюд в багровых тонах', 1, 0)
+2024-12-01 19:03:15,576 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:03:15,577 - INFO - [generated in 0.00046s] (1, 9, 'borrowed', 1, 0)
+2024-12-01 19:03:15,580 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 19:03:15,580 - INFO - [generated in 0.00035s] (2, 9)
+2024-12-01 19:03:15,591 - INFO - INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, status) VALUES (?, ?, ?, ?, ?)
+2024-12-01 19:03:15,591 - INFO - [generated in 0.00048s] (1, 9, '2024-12-01 16:03:15.591634', None, 'borrowed')
+2024-12-01 19:03:15,592 - INFO - COMMIT
+2024-12-01 19:03:20,914 - INFO - BEGIN (implicit)
+2024-12-01 19:03:20,915 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:03:20,915 - INFO - [cached since 5.342s ago] ('Шерлок Холмс: Этюд в багровых тонах', 1, 0)
+2024-12-01 19:03:20,918 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:03:20,919 - INFO - [cached since 5.342s ago] (1, 9, 'borrowed', 1, 0)
+2024-12-01 19:04:01,106 - INFO - BEGIN (implicit)
+2024-12-01 19:04:01,107 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:04:01,108 - INFO - [cached since 78.22s ago] ('l1', 'librarian123', 1, 0)
+2024-12-01 19:04:01,109 - INFO - ROLLBACK
+2024-12-01 19:04:05,705 - INFO - BEGIN (implicit)
+2024-12-01 19:04:05,710 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE borrow_records.status = ?
+2024-12-01 19:04:05,711 - INFO - [generated in 0.00041s] ('borrowed',)
+2024-12-01 19:04:05,712 - INFO - ROLLBACK
+2024-12-01 19:04:29,962 - INFO - BEGIN (implicit)
+2024-12-01 19:04:29,967 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records JOIN users ON users.id = borrow_records.user_id LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE lower(users.name) LIKE lower(?) AND borrow_records.status = ?
+2024-12-01 19:04:29,967 - INFO - [generated in 0.00062s] ('%u%', 'borrowed')
+2024-12-01 19:04:29,969 - INFO - ROLLBACK
+2024-12-01 19:04:34,524 - INFO - BEGIN (implicit)
+2024-12-01 19:04:34,528 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records JOIN users ON users.id = borrow_records.user_id JOIN books ON books.id = borrow_records.book_id 
+WHERE users.name = ? AND books.title = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:04:34,528 - INFO - [generated in 0.00069s] ('u1', 'Шерлок Холмс: Этюд в багровых тонах', 'borrowed', 1, 0)
+2024-12-01 19:04:34,534 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.id = ?
+2024-12-01 19:04:34,534 - INFO - [generated in 0.00061s] (9,)
+2024-12-01 19:04:34,536 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 19:04:34,537 - INFO - [cached since 78.96s ago] (3, 9)
+2024-12-01 19:04:34,547 - INFO - UPDATE borrow_records SET status=? WHERE borrow_records.id = ?
+2024-12-01 19:04:34,547 - INFO - [generated in 0.00035s] ('returned', 13)
+2024-12-01 19:04:34,548 - INFO - COMMIT
+2024-12-01 19:04:36,412 - INFO - BEGIN (implicit)
+2024-12-01 19:04:36,413 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status, users_1.id AS users_1_id, users_1.name AS users_1_name, users_1.role AS users_1_role, users_1.password AS users_1_password, books_1.id AS books_1_id, books_1.title AS books_1_title, books_1.author AS books_1_author, books_1.genre AS books_1_genre, books_1.year AS books_1_year, books_1.quantity AS books_1_quantity 
+FROM borrow_records LEFT OUTER JOIN users AS users_1 ON users_1.id = borrow_records.user_id LEFT OUTER JOIN books AS books_1 ON books_1.id = borrow_records.book_id 
+WHERE borrow_records.status = ?
+2024-12-01 19:04:36,414 - INFO - [cached since 30.7s ago] ('borrowed',)
+2024-12-01 19:04:36,418 - INFO - ROLLBACK
+2024-12-01 19:04:59,256 - INFO - BEGIN (implicit)
+2024-12-01 19:04:59,257 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:04:59,257 - INFO - [cached since 136.4s ago] ('u1', '123', 1, 0)
+2024-12-01 19:04:59,259 - INFO - ROLLBACK
+2024-12-01 19:05:00,336 - INFO - BEGIN (implicit)
+2024-12-01 19:05:00,336 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:05:00,336 - INFO - [cached since 136.3s ago] ()
+2024-12-01 19:05:00,337 - INFO - ROLLBACK
+2024-12-01 19:05:15,278 - INFO - BEGIN (implicit)
+2024-12-01 19:05:15,279 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:05:15,279 - INFO - [cached since 119.7s ago] ('Идиот', 1, 0)
+2024-12-01 19:05:15,282 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:05:15,283 - INFO - [cached since 119.7s ago] (1, 15, 'borrowed', 1, 0)
+2024-12-01 19:05:15,285 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 19:05:15,285 - INFO - [cached since 119.7s ago] (2, 15)
+2024-12-01 19:05:15,293 - INFO - INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, status) VALUES (?, ?, ?, ?, ?)
+2024-12-01 19:05:15,294 - INFO - [cached since 119.7s ago] (1, 15, '2024-12-01 16:05:15.293815', None, 'borrowed')
+2024-12-01 19:05:15,295 - INFO - COMMIT
+2024-12-01 19:08:44,055 - INFO - BEGIN (implicit)
+2024-12-01 19:08:44,055 - INFO - SELECT 1
+2024-12-01 19:08:44,055 - INFO - [generated in 0.00062s] ()
+2024-12-01 19:08:44,056 - INFO - ROLLBACK
+2024-12-01 19:08:51,403 - INFO - BEGIN (implicit)
+2024-12-01 19:08:51,406 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:08:51,406 - INFO - [generated in 0.00036s] ('u1', '123', 1, 0)
+2024-12-01 19:08:51,408 - INFO - ROLLBACK
+2024-12-01 19:08:52,783 - INFO - BEGIN (implicit)
+2024-12-01 19:08:52,786 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:08:52,786 - INFO - [generated in 0.00041s] ()
+2024-12-01 19:08:52,787 - INFO - ROLLBACK
+2024-12-01 19:09:04,687 - INFO - BEGIN (implicit)
+2024-12-01 19:09:04,689 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:09:04,690 - INFO - [generated in 0.00080s] ('Ведьмак: Перекресток Ворона', 1, 0)
+2024-12-01 19:09:04,697 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:09:04,697 - INFO - [generated in 0.00096s] (1, 11, 'borrowed', 1, 0)
+2024-12-01 19:09:10,453 - INFO - BEGIN (implicit)
+2024-12-01 19:09:10,453 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:09:10,453 - INFO - [cached since 5.764s ago] ('Тихий Дон', 1, 0)
+2024-12-01 19:09:10,455 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:09:10,455 - INFO - [cached since 5.758s ago] (1, 22, 'borrowed', 1, 0)
+2024-12-01 19:09:10,458 - INFO - UPDATE books SET quantity=? WHERE books.id = ?
+2024-12-01 19:09:10,458 - INFO - [generated in 0.00032s] (6, 22)
+2024-12-01 19:09:10,469 - INFO - INSERT INTO borrow_records (user_id, book_id, borrow_date, return_date, status) VALUES (?, ?, ?, ?, ?)
+2024-12-01 19:09:10,469 - INFO - [generated in 0.00055s] (1, 22, '2024-12-01 16:09:10.469100', None, 'borrowed')
+2024-12-01 19:09:10,471 - INFO - COMMIT
+2024-12-01 19:09:11,733 - INFO - BEGIN (implicit)
+2024-12-01 19:09:11,734 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:09:11,734 - INFO - [cached since 18.95s ago] ()
+2024-12-01 19:09:11,737 - INFO - ROLLBACK
+2024-12-01 19:10:51,239 - INFO - BEGIN (implicit)
+2024-12-01 19:10:51,240 - INFO - SELECT 1
+2024-12-01 19:10:51,240 - INFO - [generated in 0.00065s] ()
+2024-12-01 19:10:51,240 - INFO - ROLLBACK
+2024-12-01 19:11:31,041 - INFO - BEGIN (implicit)
+2024-12-01 19:11:31,042 - INFO - SELECT 1
+2024-12-01 19:11:31,042 - INFO - [generated in 0.00070s] ()
+2024-12-01 19:11:31,042 - INFO - ROLLBACK
+2024-12-01 19:11:50,758 - INFO - BEGIN (implicit)
+2024-12-01 19:11:50,762 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:11:50,762 - INFO - [generated in 0.00039s] ('u1', '123', 1, 0)
+2024-12-01 19:11:50,764 - INFO - ROLLBACK
+2024-12-01 19:11:51,709 - INFO - BEGIN (implicit)
+2024-12-01 19:11:51,712 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:11:51,713 - INFO - [generated in 0.00056s] ()
+2024-12-01 19:11:51,715 - INFO - ROLLBACK
+2024-12-01 19:14:10,558 - INFO - BEGIN (implicit)
+2024-12-01 19:14:10,558 - INFO - SELECT 1
+2024-12-01 19:14:10,558 - INFO - [generated in 0.00063s] ()
+2024-12-01 19:14:10,559 - INFO - ROLLBACK
+2024-12-01 19:14:16,023 - INFO - BEGIN (implicit)
+2024-12-01 19:14:16,027 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:14:16,028 - INFO - [generated in 0.00039s] ('u1', '123', 1, 0)
+2024-12-01 19:14:16,029 - INFO - ROLLBACK
+2024-12-01 19:14:16,725 - INFO - BEGIN (implicit)
+2024-12-01 19:14:16,726 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:14:16,726 - INFO - [generated in 0.00026s] ()
+2024-12-01 19:14:16,727 - INFO - ROLLBACK
+2024-12-01 19:14:29,129 - INFO - BEGIN (implicit)
+2024-12-01 19:14:29,131 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE lower(books.title) LIKE lower(?) OR lower(books.author) LIKE lower(?) OR lower(books.genre) LIKE lower(?)
+2024-12-01 19:14:29,131 - INFO - [generated in 0.00045s] ('%на%', '%на%', '%на%')
+2024-12-01 19:14:29,133 - INFO - ROLLBACK
+2024-12-01 19:14:32,772 - INFO - BEGIN (implicit)
+2024-12-01 19:14:32,773 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books 
+WHERE books.title = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:14:32,773 - INFO - [generated in 0.00031s] ('Ведьмак: Перекресток Ворона', 1, 0)
+2024-12-01 19:14:32,776 - INFO - SELECT borrow_records.id AS borrow_records_id, borrow_records.user_id AS borrow_records_user_id, borrow_records.book_id AS borrow_records_book_id, borrow_records.borrow_date AS borrow_records_borrow_date, borrow_records.return_date AS borrow_records_return_date, borrow_records.status AS borrow_records_status 
+FROM borrow_records 
+WHERE borrow_records.user_id = ? AND borrow_records.book_id = ? AND borrow_records.status = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:14:32,776 - INFO - [generated in 0.00038s] (1, 11, 'borrowed', 1, 0)
+2024-12-01 19:20:57,052 - INFO - BEGIN (implicit)
+2024-12-01 19:20:57,053 - INFO - SELECT 1
+2024-12-01 19:20:57,053 - INFO - [generated in 0.00104s] ()
+2024-12-01 19:20:57,054 - INFO - ROLLBACK
+2024-12-01 19:21:01,869 - INFO - BEGIN (implicit)
+2024-12-01 19:21:01,873 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:21:01,873 - INFO - [generated in 0.00048s] ('u1', '123', 1, 0)
+2024-12-01 19:21:01,876 - INFO - ROLLBACK
+2024-12-01 19:21:02,575 - INFO - BEGIN (implicit)
+2024-12-01 19:21:02,577 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:21:02,577 - INFO - [generated in 0.00034s] ()
+2024-12-01 19:21:02,579 - INFO - ROLLBACK
+2024-12-01 19:22:39,506 - INFO - BEGIN (implicit)
+2024-12-01 19:22:39,506 - INFO - SELECT 1
+2024-12-01 19:22:39,507 - INFO - [generated in 0.00117s] ()
+2024-12-01 19:22:39,508 - INFO - ROLLBACK
+2024-12-01 19:22:43,278 - INFO - BEGIN (implicit)
+2024-12-01 19:22:43,282 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:22:43,282 - INFO - [generated in 0.00038s] ('u1', '123', 1, 0)
+2024-12-01 19:22:43,285 - INFO - ROLLBACK
+2024-12-01 19:23:12,964 - INFO - BEGIN (implicit)
+2024-12-01 19:23:12,964 - INFO - SELECT 1
+2024-12-01 19:23:12,964 - INFO - [generated in 0.00069s] ()
+2024-12-01 19:23:12,964 - INFO - ROLLBACK
+2024-12-01 19:23:17,438 - INFO - BEGIN (implicit)
+2024-12-01 19:23:17,442 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:23:17,442 - INFO - [generated in 0.00039s] ('u1', '123', 1, 0)
+2024-12-01 19:23:17,444 - INFO - ROLLBACK
+2024-12-01 19:23:17,929 - INFO - BEGIN (implicit)
+2024-12-01 19:23:17,930 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:23:17,931 - INFO - [generated in 0.00039s] ()
+2024-12-01 19:23:17,932 - INFO - ROLLBACK
+2024-12-01 19:24:08,351 - INFO - BEGIN (implicit)
+2024-12-01 19:24:08,351 - INFO - SELECT 1
+2024-12-01 19:24:08,351 - INFO - [generated in 0.00062s] ()
+2024-12-01 19:24:08,352 - INFO - ROLLBACK
+2024-12-01 19:24:13,744 - INFO - BEGIN (implicit)
+2024-12-01 19:24:13,748 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:24:13,748 - INFO - [generated in 0.00037s] ('u1', '123', 1, 0)
+2024-12-01 19:24:13,750 - INFO - ROLLBACK
+2024-12-01 19:24:14,685 - INFO - BEGIN (implicit)
+2024-12-01 19:24:14,687 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:24:14,687 - INFO - [generated in 0.00034s] ()
+2024-12-01 19:24:14,689 - INFO - ROLLBACK
+2024-12-01 19:29:20,504 - INFO - BEGIN (implicit)
+2024-12-01 19:29:20,505 - INFO - SELECT 1
+2024-12-01 19:29:20,505 - INFO - [generated in 0.00064s] ()
+2024-12-01 19:29:20,505 - INFO - ROLLBACK
+2024-12-01 19:29:31,845 - INFO - BEGIN (implicit)
+2024-12-01 19:29:31,850 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:29:31,851 - INFO - [generated in 0.00068s] ('u1', '123', 1, 0)
+2024-12-01 19:29:31,853 - INFO - ROLLBACK
+2024-12-01 19:29:32,709 - INFO - BEGIN (implicit)
+2024-12-01 19:29:32,710 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:29:32,710 - INFO - [generated in 0.00035s] ()
+2024-12-01 19:29:32,711 - INFO - ROLLBACK
+2024-12-01 19:30:20,457 - INFO - BEGIN (implicit)
+2024-12-01 19:30:20,458 - INFO - SELECT 1
+2024-12-01 19:30:20,458 - INFO - [generated in 0.00084s] ()
+2024-12-01 19:30:20,458 - INFO - ROLLBACK
+2024-12-01 19:30:27,528 - INFO - BEGIN (implicit)
+2024-12-01 19:30:27,531 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:30:27,532 - INFO - [generated in 0.00040s] ('u1', '123', 1, 0)
+2024-12-01 19:30:27,533 - INFO - ROLLBACK
+2024-12-01 19:31:09,529 - INFO - BEGIN (implicit)
+2024-12-01 19:31:09,530 - INFO - SELECT 1
+2024-12-01 19:31:09,530 - INFO - [generated in 0.00102s] ()
+2024-12-01 19:31:09,530 - INFO - ROLLBACK
+2024-12-01 19:31:15,070 - INFO - BEGIN (implicit)
+2024-12-01 19:31:15,074 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:31:15,074 - INFO - [generated in 0.00039s] ('u1', '123', 1, 0)
+2024-12-01 19:31:15,076 - INFO - ROLLBACK
+2024-12-01 19:32:33,064 - INFO - BEGIN (implicit)
+2024-12-01 19:32:33,064 - INFO - SELECT 1
+2024-12-01 19:32:33,064 - INFO - [generated in 0.00082s] ()
+2024-12-01 19:32:33,065 - INFO - ROLLBACK
+2024-12-01 19:32:40,227 - INFO - BEGIN (implicit)
+2024-12-01 19:32:40,234 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:32:40,234 - INFO - [generated in 0.00080s] ('u1', '123', 1, 0)
+2024-12-01 19:32:40,236 - INFO - ROLLBACK
+2024-12-01 19:32:41,781 - INFO - BEGIN (implicit)
+2024-12-01 19:32:41,787 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:32:41,788 - INFO - [generated in 0.00110s] ()
+2024-12-01 19:32:41,791 - INFO - ROLLBACK
+2024-12-01 19:32:58,008 - INFO - BEGIN (implicit)
+2024-12-01 19:32:58,008 - INFO - SELECT 1
+2024-12-01 19:32:58,008 - INFO - [generated in 0.00083s] ()
+2024-12-01 19:32:58,009 - INFO - ROLLBACK
+2024-12-01 19:33:03,639 - INFO - BEGIN (implicit)
+2024-12-01 19:33:03,647 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:33:03,647 - INFO - [generated in 0.00056s] ('u1', '123', 1, 0)
+2024-12-01 19:33:03,648 - INFO - ROLLBACK
+2024-12-01 19:33:04,103 - INFO - BEGIN (implicit)
+2024-12-01 19:33:04,106 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:33:04,106 - INFO - [generated in 0.00051s] ()
+2024-12-01 19:33:04,108 - INFO - ROLLBACK
+2024-12-01 19:34:54,421 - INFO - BEGIN (implicit)
+2024-12-01 19:34:54,422 - INFO - SELECT 1
+2024-12-01 19:34:54,422 - INFO - [generated in 0.00391s] ()
+2024-12-01 19:34:54,425 - INFO - ROLLBACK
+2024-12-01 19:35:06,218 - INFO - BEGIN (implicit)
+2024-12-01 19:35:06,224 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:35:06,225 - INFO - [generated in 0.00053s] ('u1', '123', 1, 0)
+2024-12-01 19:35:06,226 - INFO - ROLLBACK
+2024-12-01 19:35:07,247 - INFO - BEGIN (implicit)
+2024-12-01 19:35:07,248 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:35:07,248 - INFO - [generated in 0.00034s] ()
+2024-12-01 19:35:07,250 - INFO - ROLLBACK
+2024-12-01 19:38:59,398 - INFO - BEGIN (implicit)
+2024-12-01 19:38:59,403 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:38:59,403 - INFO - [generated in 0.00041s] ('u1', '123', 1, 0)
+2024-12-01 19:38:59,405 - INFO - ROLLBACK
+2024-12-01 19:39:00,379 - INFO - BEGIN (implicit)
+2024-12-01 19:39:00,380 - INFO - SELECT 1
+2024-12-01 19:39:00,380 - INFO - [generated in 0.00209s] ()
+2024-12-01 19:39:00,382 - INFO - ROLLBACK
+2024-12-01 19:41:45,365 - INFO - BEGIN (implicit)
+2024-12-01 19:41:45,371 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:41:45,371 - INFO - [generated in 0.00045s] ('u1', '123', 1, 0)
+2024-12-01 19:41:45,372 - INFO - ROLLBACK
+2024-12-01 19:41:45,632 - INFO - BEGIN (implicit)
+2024-12-01 19:41:45,634 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:41:45,634 - INFO - [generated in 0.00049s] ()
+2024-12-01 19:41:45,636 - INFO - ROLLBACK
+2024-12-01 19:42:36,525 - INFO - BEGIN (implicit)
+2024-12-01 19:42:36,533 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:42:36,533 - INFO - [generated in 0.00070s] ('u1', '123', 1, 0)
+2024-12-01 19:42:36,535 - INFO - ROLLBACK
+2024-12-01 19:42:36,847 - INFO - BEGIN (implicit)
+2024-12-01 19:42:36,848 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:42:36,848 - INFO - [generated in 0.00029s] ()
+2024-12-01 19:42:36,850 - INFO - ROLLBACK
+2024-12-01 19:42:40,235 - INFO - BEGIN (implicit)
+2024-12-01 19:42:40,236 - INFO - SELECT 1
+2024-12-01 19:42:40,237 - INFO - [generated in 0.00155s] ()
+2024-12-01 19:42:40,240 - INFO - ROLLBACK
+2024-12-01 19:44:03,857 - INFO - BEGIN (implicit)
+2024-12-01 19:44:03,864 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:44:03,864 - INFO - [generated in 0.00054s] ('u1', '123', 1, 0)
+2024-12-01 19:44:03,865 - INFO - ROLLBACK
+2024-12-01 19:44:04,161 - INFO - BEGIN (implicit)
+2024-12-01 19:44:04,163 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:44:04,163 - INFO - [generated in 0.00029s] ()
+2024-12-01 19:44:04,164 - INFO - ROLLBACK
+2024-12-01 19:44:09,200 - INFO - BEGIN (implicit)
+2024-12-01 19:44:09,200 - INFO - SELECT 1
+2024-12-01 19:44:09,201 - INFO - [generated in 0.00085s] ()
+2024-12-01 19:44:09,201 - INFO - ROLLBACK
+2024-12-01 19:44:50,534 - INFO - BEGIN (implicit)
+2024-12-01 19:44:50,538 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:44:50,538 - INFO - [generated in 0.00039s] ('u1', '123', 1, 0)
+2024-12-01 19:44:50,540 - INFO - ROLLBACK
+2024-12-01 19:44:50,843 - INFO - BEGIN (implicit)
+2024-12-01 19:44:50,844 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:44:50,845 - INFO - [generated in 0.00051s] ()
+2024-12-01 19:44:50,846 - INFO - ROLLBACK
+2024-12-01 19:44:55,230 - INFO - BEGIN (implicit)
+2024-12-01 19:44:55,231 - INFO - SELECT 1
+2024-12-01 19:44:55,233 - INFO - [generated in 0.00252s] ()
+2024-12-01 19:44:55,234 - INFO - ROLLBACK
+2024-12-01 19:47:34,141 - INFO - BEGIN (implicit)
+2024-12-01 19:47:34,147 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:47:34,147 - INFO - [generated in 0.00044s] ('u1', '123', 1, 0)
+2024-12-01 19:47:34,149 - INFO - ROLLBACK
+2024-12-01 19:47:35,313 - INFO - BEGIN (implicit)
+2024-12-01 19:47:35,315 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:47:35,315 - INFO - [generated in 0.00029s] ()
+2024-12-01 19:47:35,317 - INFO - ROLLBACK
+2024-12-01 19:47:39,909 - INFO - BEGIN (implicit)
+2024-12-01 19:47:39,910 - INFO - SELECT 1
+2024-12-01 19:47:39,911 - INFO - [generated in 0.00160s] ()
+2024-12-01 19:47:39,912 - INFO - ROLLBACK
+2024-12-01 19:47:59,703 - INFO - BEGIN (implicit)
+2024-12-01 19:47:59,709 - INFO - SELECT users.id AS users_id, users.name AS users_name, users.role AS users_role, users.password AS users_password 
+FROM users 
+WHERE users.name = ? AND users.password = ?
+ LIMIT ? OFFSET ?
+2024-12-01 19:47:59,709 - INFO - [generated in 0.00066s] ('u1', '123', 1, 0)
+2024-12-01 19:47:59,711 - INFO - ROLLBACK
+2024-12-01 19:48:01,011 - INFO - BEGIN (implicit)
+2024-12-01 19:48:01,013 - INFO - SELECT books.id AS books_id, books.title AS books_title, books.author AS books_author, books.genre AS books_genre, books.year AS books_year, books.quantity AS books_quantity 
+FROM books
+2024-12-01 19:48:01,013 - INFO - [generated in 0.00037s] ()
+2024-12-01 19:48:01,014 - INFO - ROLLBACK
